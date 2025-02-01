@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../../assets/Styles/Fonts/LEMONMILK-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.footer {
+    background-color: #a85c27;
+    color: white;
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: space-between;
+
+    // Apply the Lemon Milk font to the entire footer
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 16px;
+
+    // Target the wrapper div inside the footer (the one wrapping all sections)
+    .footer__up {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .footer__down {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__left,
+    &__middle,
+    .footer_right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__left {
+        width: 25%; // Ensure all sections take equal width
+
+        img {
+            width: 150px;
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            font-size: 24px;
+        }
+    }
+
+    &__middle {
+        width: 50%; // Takes half of the width of the container
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .our_company {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .our_company1 {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .our_company1 ul,
+    .our_company2 ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+
+        // Add margin-bottom to each list item
+        li {
+            margin-bottom: 10px; // Adds space between each <li> element
+        }
+    }
+
+    .footer__payments {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        font-size: 30px;
+        margin-top: 30px;
+        justify-content: center;
+        width: 100%;
+
+        img {
+            width: 50px; // Fixed width for payment images
+            height: 50px; // Fixed height to maintain aspect ratio
+            object-fit: contain; // Ensures the images scale without distortion
+        }
+    }
+
+    .footer_right {
+        width: 25%; // Takes 1/4 of the space to ensure equal width
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .footer_right ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+
+        li {
+            margin-bottom: 10px; // Adds space between each <li> element
+        }
+    }
+
+    // Media Query for responsiveness
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 10px;
+
+        // Stack sections vertically on smaller screens
+        &__left,
+        &__middle,
+        .footer_right {
+            width: 100%; // Ensure each section takes full width when stacked
+        }
+
+        .footer__payments {
+            width: 100%; // Center payments to fit screen
+            font-size: 24px;
+        }
+
+        .our_company {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
