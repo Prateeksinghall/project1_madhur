@@ -1,100 +1,194 @@
-    @font-face {
-        font-family: 'Lemon Milk';
-        src: url('../../assets/Styles/Fonts/LEMONMILK-Regular.otf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../../assets/Styles/Fonts/LEMONMILK-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-    .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        height: 158px;
-        padding: 0 40px;
-        background-color: transparent;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
-        font-family: 'Lemon Milk', sans-serif;
-        font-weight: normal;
-        transition: background-color 0.3s ease;
-    }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 158px;
+    padding: 0 40px;
+    background-color: transparent;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-family: 'Lemon Milk', sans-serif;
+    font-weight: normal;
+    transition: background-color 0.3s ease;
 
-    /* LeftNavBar: Centered Logo & Menu */
-    .leftNavBar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: transparent;
-        transition: background-color 0.3s ease;
-
-        .logo {
-            max-width: 284px;
-            max-height: 100px;
-            height: auto;
-            object-fit: contain;
-            background-color: transparent;
-            transition: background-color 0.3s ease;
-        }
-
-        .menu {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            margin-top: 10px;
-            background-color: transparent;
-            transition: background-color 0.3s ease;
-
-            li {
-                font-size: 18px;
-                font-weight: normal;
-                cursor: pointer;
-                transition: color 0.3s ease, background-color 0.3s ease;
-                padding-bottom: 20px;
-                padding-left: 15px;
-                padding-right: 15px;
-                color: white;
-                background-color: transparent;
-            }
-        }
-    }
-
-    /* RightNavBar: Fixed to 20% Width */
-    .rightNavBar {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        width: 20%;
-        margin-left: auto;
-        gap: 20px;
-        background-color: transparent;
-        transition: background-color 0.3s ease;
-
-        .icon {
-            font-size: 40px;
-            cursor: pointer;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            background-color: transparent;
-            color: white;
-        }
-    }
-
-    /* Hover Effects: Change background to white on hover */
-    .navbar:hover {
+    /* Navbar hover effect */
+    &:hover {
         background-color: white;
 
+        .menu li {
+            color: #883B36;
+        }
+
+        .icon {
+            color: #883B36;
+        }
+    }
+}
+
+/* LeftNavBar: Centered Logo & Menu */
+.leftNavBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+
+    .logo {
+        max-width: 284px;
+        max-height: 100px;
+        height: auto;
+        object-fit: contain;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
     }
 
-    /* Change li color to #883B36 when navbar is hovered */
-    .navbar:hover .menu li {
-        color: #883B36;
+    .menu {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin-top: 10px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+
+        li {
+            font-size: 18px;
+            font-weight: normal;
+            cursor: pointer;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding-bottom: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: white;
+            background-color: transparent;
+        }
+    }
+}
+
+/* RightNavBar: Fixed to 20% Width */
+.rightNavBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 20%;
+    margin-left: auto;
+    gap: 20px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+
+    .icon {
+        font-size: 40px;
+        cursor: pointer;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        background-color: transparent;
+        color: white;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 20px;
+        height: auto;
+        /* Adjust height on smaller screens */
     }
 
-    /* Change icon color to #883B36 when navbar is hovered */
-    .navbar:hover .icon {
-        color: #883B36;
+    .leftNavBar {
+        position: static;
+        /* Align the menu to the left on smaller screens */
+        transform: none;
+        margin-bottom: 10px;
     }
+
+    .menu {
+        flex-direction: column;
+        /* Stack the menu items vertically */
+        gap: 10px;
+    }
+
+    .rightNavBar {
+        width: 100%;
+        justify-content: space-between;
+        /* Adjust icon alignment */
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 10px;
+        height: auto;
+        /* Allow navbar to expand vertically on smaller screens */
+    }
+
+    .leftNavBar {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+        width: 100%;
+        /* Make the leftNavBar take full width */
+    }
+
+    .menu {
+        flex-direction: column;
+        /* Stack the menu items vertically */
+        gap: 15px;
+        width: 100%;
+        /* Ensure the menu takes full width */
+    }
+
+    .rightNavBar {
+        width: 100%;
+        /* Take full width on small screens */
+        justify-content: space-between;
+        /* Align icons properly */
+        margin-top: 10px;
+    }
+
+    .icon {
+        font-size: 30px;
+        /* Reduce icon size on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px 5px;
+        height: auto;
+    }
+
+    .leftNavBar .logo {
+        max-width: 200px;
+        /* Adjust logo size on very small screens */
+    }
+
+    .menu li {
+        font-size: 16px;
+        /* Reduce menu item font size */
+    }
+
+    .rightNavBar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        /* Adjust spacing between icons */
+    }
+
+    .icon {
+        font-size: 28px;
+        /* Adjust icon size for small screens */
+    }
+}
