@@ -73,7 +73,7 @@
                 top: calc(100% + 7px);
                 left: 0;
                 background: white;
-                padding: 0px 20px;
+                padding: 0px;
                 width: max-content;
                 z-index: 5;
                 /* Makes width dynamic based on content */
@@ -89,14 +89,9 @@
             }
 
             .submenu li a {
-                font-size: 16px;
                 display: flex;
                 align-items: center;
                 gap: 30px; // Adjust this value for more or less spacing
-            }
-
-            .nested-submenu li a {
-                font-size: 16px;
             }
 
             .submenu-text {
@@ -111,7 +106,7 @@
                 list-style: none;
                 position: absolute;
                 top: 0;
-                left: calc(100% + 20px);
+                left: calc(100%);
                 padding: 0px 20px;
                 background: white;
                 padding: 10px;
@@ -137,6 +132,7 @@
                 align-items: center;
                 justify-content: space-between;
                 position: relative;
+                padding: 10px 20px;
             }
 
         }
