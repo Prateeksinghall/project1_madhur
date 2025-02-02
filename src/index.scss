@@ -6,23 +6,25 @@ $primary-color: #883B36;
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+/* Ensure the footer appears after content */
 .footer {
-    background-color: #a85c27;
+    background-color: #BD6D2A;
     color: white;
     padding: 40px 5%;
     display: flex;
     align-items: flex-start;
     text-align: left;
-    justify-content: space-between; // Ensures equal spacing between sections
-    position: fixed;
-    /* Fixed position to the bottom of the viewport */
-    bottom: 0;
-    /* Align the footer at the bottom */
-    left: 0;
-    /* Ensure it stretches across the full width */
+    justify-content: space-between;
+    /* Equal spacing between sections */
     width: 100%;
-    /* Full width of the screen */
     z-index: 2;
-    /* Ensure the footer appears above content */
+    /* Removed fixed position */
 }
