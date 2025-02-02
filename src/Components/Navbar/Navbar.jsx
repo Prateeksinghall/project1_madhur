@@ -37,12 +37,48 @@ const Menu = [
     {
         id: 3,
         name: "BEST SELLERS",
-        link: "/#"
+        link: "/#",
+        subMenu: [
+            {
+                id: 21,
+                name: "Shop by Collection",
+                link: "/#"
+            },
+            {
+                id: 22,
+                name: "Shop by Fabric",
+                link: "#",
+                subMenu: [
+                    { id: 231, name: "Pure Cotton", link: "/#" },
+                    { id: 232, name: "Woolen", link: "/#" },
+                    { id: 233, name: "Silk", link: "/#" },
+                    { id: 234, name: "Nylon", link: "/#" }
+                ]
+            }
+        ]
     },
     {
         id: 4,
         name: "SALE",
-        link: "/#"
+        link: "/#",
+        subMenu: [
+            {
+                id: 21,
+                name: "Shop by Collection",
+                link: "/#"
+            },
+            {
+                id: 22,
+                name: "Shop by Fabric",
+                link: "#",
+                subMenu: [
+                    { id: 231, name: "Pure Cotton", link: "/#" },
+                    { id: 232, name: "Woolen", link: "/#" },
+                    { id: 233, name: "Silk", link: "/#" },
+                    { id: 234, name: "Nylon", link: "/#" }
+                ]
+            }
+        ]
     }
 ];
 
@@ -52,8 +88,17 @@ const Navbar = () => {
 
     const toggleSubmenu = (id, e) => {
         e.stopPropagation();
+
         setOpenMenus((prev) => {
-            const newState = { ...prev, [id]: !prev[id] };
+            const newState = { ...prev };
+
+            // Close all menus first
+            Object.keys(newState).forEach((key) => {
+                newState[key] = false;
+            });
+
+            // Toggle the selected menu
+            newState[id] = !newState[id];
 
             // Check if any menu is open
             const anyMenuOpen = Object.values(newState).some((isOpen) => isOpen);
@@ -62,6 +107,7 @@ const Navbar = () => {
             return newState;
         });
     };
+
 
     const closeAllMenus = () => {
         setOpenMenus({});
