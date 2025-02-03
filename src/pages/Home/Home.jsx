@@ -34,10 +34,27 @@ const Home = () => {
 
             <div className='Categories'>
                 <div className='Collections-text'>Categories</div>
-                <div className='Collections-item'>
-                    <Card />
-                    <Card />
+                <div className='Categories-item'>
+                    <div className='Categories-card'>
+                        <div className='cards'><Card /></div>
+                        <span>MUL COTTON</span>
+                    </div>
+                    <div className='Categories-card'>
+                        <div className='cards'><Card /></div>
+                        <span>PURE COTTON</span>
+                    </div>
+                    <div className='Categories-card'>
+                        <div className='cards'><Card /></div>
+                        <span>COTTON ZARI</span>
+                    </div>
+                    <div className='Categories-card'>
+                        <div className='cards'><Card /></div>
+                        <span>COTTON ZAMDANI</span>
+                    </div>
                 </div>
+            </div>
+
+            <div className='shop_now'>Shop Now
             </div>
 
         </div>
