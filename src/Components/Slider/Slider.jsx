@@ -29,6 +29,9 @@ const Slider = () => {
                     />
                 ))}
             </div>
+            <div className='bagaan_title'>Bagaan</div>
+            <div className='shop_now'>Shop Now
+            </div>
             <div className="icons">
                 <div className="icon" onClick={prevSlide}>
                     {/* Add your left arrow icon */}
@@ -38,6 +41,9 @@ const Slider = () => {
                     {/* Add your right arrow icon */}
                     &#10095;
                 </div>
+            </div>
+            <div className="progress-bar">
+                <div className="progress-fill" style={{ left: `${(currentSlide / images.length) * 100}%` }}></div>
             </div>
         </div>
     );

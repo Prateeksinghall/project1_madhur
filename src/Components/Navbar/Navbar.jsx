@@ -92,21 +92,24 @@ const Navbar = () => {
         setOpenMenus((prev) => {
             const newState = { ...prev };
 
-            // Close all menus first
-            Object.keys(newState).forEach((key) => {
-                newState[key] = false;
-            });
-
-            // Toggle the selected menu
+            // Toggle the clicked menu item
             newState[id] = !newState[id];
 
-            // Check if any menu is open
+            // Close all other menus
+            Object.keys(newState).forEach((key) => {
+                if (key !== id.toString()) {
+                    newState[key] = false;
+                }
+            });
+
+            // Check if any menu is still open
             const anyMenuOpen = Object.values(newState).some((isOpen) => isOpen);
             setIsMenuOpen(anyMenuOpen);
 
             return newState;
         });
     };
+
 
 
     const closeAllMenus = () => {

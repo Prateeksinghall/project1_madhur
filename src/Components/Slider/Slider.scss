@@ -1,6 +1,13 @@
+@font-face {
+    font-family: 'Ragilen';
+    src: url('../../assets/Fonts/ragilen/Ragilen.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .slider {
     position: relative;
-    height: 100vh;
+    height: 110vh;
     /* Full viewport height */
     width: 100%;
     overflow: hidden;
@@ -8,7 +15,6 @@
     .container {
         position: relative;
         width: 100%;
-        /* Adjust to the width of the container */
         height: 100%;
         display: flex;
         justify-content: center;
@@ -17,52 +23,134 @@
 
         img {
             position: absolute;
-            /* Place all images on top of each other */
             width: 100vw;
             height: 100%;
             object-fit: cover;
             opacity: 0;
-            /* Hide all images initially */
             transition: opacity 1.5s ease-in-out;
-            /* Smooth fade transition */
         }
 
         .active {
             opacity: 1;
-            /* Show the active image */
         }
 
         .inactive {
             opacity: 0;
-            /* Hide inactive images */
         }
     }
 
+    .bagaan_title {
+        position: absolute;
+        bottom: 16%;
+        /* 20px from the bottom */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 76px;
+        font-family: 'Ragilen', serif;
+    }
+
+    .shop_now {
+        font-family: 'Ragilen', serif;
+        font-weight: bold;
+        border: 3px solid white;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 16%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 28px;
+        padding: 8px 25px;
+        /* Adjust padding for better spacing */
+        display: inline-block;
+        /* Ensures width adjusts to content */
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        transition: color 0.5s ease, border-color 0.5s ease;
+    }
+
+    .shop_now::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        transition: left 0.5s ease-in-out;
+        z-index: -1;
+    }
+
+    .shop_now:hover::before {
+        left: 0;
+    }
+
+    .shop_now:hover {
+        color: black;
+        border-color: black;
+    }
+
+
+
+
+
+
+
     .icons {
         position: absolute;
-        bottom: 50px;
-        left: 0;
-        right: 0;
+        bottom: 12%;
+        /* 20px from the bottom */
+        right: 5%;
+        /* 20px from the right */
+        display: flex;
+        gap: 30px;
         margin: auto;
         width: fit-content;
-        display: flex;
-        gap: 10px;
 
         .icon {
-            width: 50px;
-            height: 50px;
-            border: 1px solid grey;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 200ms ease-in-out;
-            font-size: 30px;
-            /* Adjust icon size */
+            font-size: 15px;
+            font-weight: lighter;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .icon:hover {
-            box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Darken on hover */
         }
     }
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 16%;
+    left: 82%;
+    transform: translateX(-50%);
+    width: 430px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    /* Since there are 5 images, width should be 100% / 5 = 20% */
+    background-color: grey;
+    border-radius: 2px;
+    transition: left 0.5s ease-in-out;
 }

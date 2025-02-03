@@ -1,0 +1,29 @@
+.img-box {
+    width: 100%;
+    /* Full width of its parent (Collection1 or Collection2) */
+    height: 100%;
+    /* Full height of its parent */
+    overflow: hidden;
+    /* Prevent the image from overflowing */
+    display: flex;
+    align-items: center;
+    /* Center the image vertically */
+    justify-content: center;
+    /* Center the image horizontally */
+}
+
+.img-box img {
+    width: 100%;
+    /* Image will fit the container's width */
+    height: 100%;
+    /* Image will fit the container's height */
+    object-fit: cover;
+    /* Maintain aspect ratio without distortion */
+    transition: transform 3s ease-in-out;
+    /* Zoom effect on hover */
+}
+
+.img-box:hover img {
+    transform: scale(1.4);
+    /* Zoom effect */
+}

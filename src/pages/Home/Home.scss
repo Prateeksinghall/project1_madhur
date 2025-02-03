@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Ragilen';
+    src: url('../../assets/Fonts/ragilen/Ragilen.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Collections {
+    margin: 0 40px;
+}
+
+.Collections-text {
+    margin: 50px 0 25px 0;
+    height: 74.46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 56px;
+    font-family: 'Ragilen', serif;
+}
+
+.Collections-item {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 98vh;
+}
+
+.Collection1,
+.Collection2 {
+    flex-basis: 50%;
+    /* Each takes up half the width of .Collections-item */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.button-overlay {
+    position: absolute;
+    bottom: 80px;
+    /* Place the button at the bottom */
+    width: 100%;
+    /* Ensure the button takes the full width of the container */
+    display: flex;
+    justify-content: center;
+    /* Center the button horizontally */
+}
+
+.image-button {
+    width: 300px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Transparent black background */
+    color: white;
+    /* Button text color */
+    border: none;
+    /* Rounded corners */
+    font-size: 16px;
+    font-weight: 400;
+    font-size: 49px;
+    font-family: 'Ragilen', serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.image-button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Darker shade when hovered */
+}
+
+.Collection1,
+.Collection2:hover {
+    cursor: pointer;
+}
+
+.Categories {
+    margin: 0 40px;
+}
