@@ -10,13 +10,12 @@ import Home from "./pages/home/home";
 import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 
-
 const Layout = () => {
   return (
     <div className="app">
       <Navbar />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 };

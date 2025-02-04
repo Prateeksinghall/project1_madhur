@@ -1,0 +1,65 @@
+.button-overlay {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Base styling for larger screens */
+.image-button {
+    width: 50%;
+    // height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Transparent black background */
+    color: white;
+    /* Button text color */
+    border: none;
+    /* Rounded corners */
+    font-size: 16px;
+    font-weight: 400;
+    font-size: 49px;
+    font-family: 'Ragilen', serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Button hover effect */
+.image-button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Medium screens (Tablets) */
+@media (max-width: 1024px) {
+    .image-button {
+        font-size: 36px;
+        width: 60%;
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 768px) {
+    .button-overlay {
+        bottom: 10%;
+        /* Adjust placement for small screens */
+    }
+
+    .image-button {
+        font-size: 28px;
+        width: 70%;
+        padding: 8px 15px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .button-overlay {
+        bottom: 15%;
+    }
+
+    .image-button {
+        font-size: 22px;
+        width: 80%;
+        padding: 6px 10px;
+    }
+}

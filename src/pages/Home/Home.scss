@@ -5,6 +5,7 @@
     font-style: normal;
 }
 
+/* General Styling */
 .Collections {
     margin: 0 40px;
 }
@@ -18,48 +19,36 @@
     font-weight: 400;
     font-size: 56px;
     font-family: 'Ragilen', serif;
+    text-align: center;
 }
 
+/* Collections Section */
 .Collections-item {
     display: flex;
     gap: 20px;
     width: 100%;
-    height: 98vh;
+    min-height: 60vh; // Ensures it adapts to content
 }
 
 .Collection1,
 .Collection2 {
     flex-basis: 50%;
-    /* Each takes up half the width of .Collections-item */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
+    padding: 10px; // Increases tap area on mobile
 }
 
-.button-overlay {
-    position: absolute;
-    bottom: 80px;
-    /* Place the button at the bottom */
-    width: 100%;
-    /* Ensure the button takes the full width of the container */
-    display: flex;
-    justify-content: center;
-    /* Center the button horizontally */
-}
-
+/* Collection Button Styling */
 .image-button {
-    width: 300px;
-    height: 70px;
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Transparent black background */
-    color: white;
-    /* Button text color */
-    border: none;
-    /* Rounded corners */
-    font-size: 16px;
-    font-weight: 400;
     font-size: 49px;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-weight: 400;
     font-family: 'Ragilen', serif;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
@@ -67,14 +56,9 @@
 
 .image-button:hover {
     background-color: rgba(0, 0, 0, 0.6);
-    /* Darker shade when hovered */
 }
 
-.Collection1,
-.Collection2:hover {
-    cursor: pointer;
-}
-
+/* Categories Section */
 .Categories {
     margin: 0 40px;
 }
@@ -85,17 +69,13 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.7%;
-
 }
-
 
 .Categories-card {
     width: 23.6%;
     display: flex;
     flex-direction: column;
-    /* Stack the card and span vertically */
     align-items: center;
-    /* Center the items horizontally */
     justify-content: flex-start;
 }
 
@@ -104,7 +84,6 @@
     width: 100%;
 }
 
-
 .Categories-card span {
     margin: 10% 0;
     font-weight: bold;
@@ -112,19 +91,18 @@
     font-family: 'Ragilen', serif;
 }
 
+/* Shop Now Button */
 .shop_now {
     margin: 0 0 1% 0;
     font-family: 'Ragilen', serif;
     font-weight: bold;
     border: 3px solid black;
-    /* Set the border to black initially */
     border-radius: 50px;
     position: absolute;
     bottom: 16%;
     left: 50%;
     transform: translateX(-50%);
     color: black;
-    /* Set the text color to black initially */
     font-size: 28px;
     padding: 8px 25px;
     display: inline-block;
@@ -133,8 +111,6 @@
     z-index: 1;
     overflow: hidden;
     transition: color 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
-
-    /* Add a default background color (black) */
     background-color: white;
 }
 
@@ -146,42 +122,82 @@
     width: 100%;
     height: 100%;
     background-color: white;
-    /* Set the initial background color of the ::before element to black */
     transition: left 0.5s ease-in-out;
     z-index: -1;
 }
 
 .shop_now:hover::before {
     left: 0;
-    /* Move the ::before element to cover the button on hover */
 }
 
 .shop_now:hover {
     color: white;
-    /* Text color becomes white on hover */
-    /* Border color becomes white on hover */
     background-color: white;
-    /* Background stays black */
 }
 
 .shop_now:hover::before {
     background-color: black;
-    /* Change the background of the pseudo-element to white on hover */
 }
 
+/* Best Seller Section */
+.best_seller {
+    margin: 50px 40px 0 40px;
+    height: 86vh;
+}
 
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .Collections-item {
+        flex-direction: column; // Stack collections on tablets
+        min-height: auto;
+    }
 
+    .Collection1,
+    .Collection2 {
+        flex-basis: 100%; // Full width on tablets
+    }
+
+    .image-button {
+        font-size: 36px;
+    }
+
+    .Categories-card {
+        width: 45%; // Adjust category card size
+    }
+}
 
 @media (max-width: 768px) {
+    .Collections-text {
+        font-size: 40px;
+    }
+
+    .image-button {
+        font-size: 28px;
+        width: 70%;
+    }
+
     .Categories-card {
-        flex-basis: 45%;
-        /* Cards take up 45% of the width when the screen is smaller */
+        width: 100%; // Full width cards on mobile
+    }
+
+    .shop_now {
+        font-size: 24px;
+        padding: 6px 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .Categories-card {
-        flex-basis: 100%;
-        /* Cards take up 100% of the width on very small screens */
+    .Collections-text {
+        font-size: 32px;
+    }
+
+    .image-button {
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .shop_now {
+        font-size: 20px;
+        padding: 5px 15px;
     }
 }
