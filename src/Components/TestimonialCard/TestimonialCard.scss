@@ -1,17 +1,27 @@
 .TestimonialCard {
     position: relative;
-    width: 100%; // Adjust width so three cards fit in a row// Slightly transparent background for contrast
+    width: 100%; // Adjust width so three cards fit in a row
     height: 90%;
     overflow: hidden;
     text-align: center;
+    transition: transform 0.3s ease;
+    /* Add smooth transition to the card itself */
+    /* Optional for rounded corners */
+
+    &:hover {
+        transform: scale(1.05);
+        /* Scale the card slightly on hover */
+    }
 }
 
 .TestimonialImage {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+
     object-fit: cover;
-    opacity: 1; // Make image slightly transparent
+    opacity: 1;
+    transition: transform 0.3s ease;
+    /* Smooth transition for image scaling */
 }
 
 .TestimonialTitle {
@@ -24,6 +34,8 @@
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 2;
+    transition: transform 0.3s ease;
+    /* Smooth transition for title movement */
 }
 
 .TestimanialText {
@@ -36,6 +48,18 @@
     font-size: 16px;
     color: white;
     z-index: 2;
+    transition: transform 0.3s ease;
+    /* Smooth transition for text movement */
+}
+
+.TestimonialCard:hover .TestimonialTitle {
+    transform: translate(-50%, -20%);
+    /* Move title upwards when card is hovered */
+}
+
+.TestimonialCard:hover .TestimanialText {
+    transform: translateX(-50%) translateY(-20%);
+    /* Move testimonial text upwards */
 }
 
 @media (max-width: 768px) {
