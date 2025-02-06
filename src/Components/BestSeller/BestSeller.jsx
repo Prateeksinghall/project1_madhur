@@ -3,20 +3,24 @@ import { useSwipeable } from "react-swipeable";
 import "./BestSeller.scss";
 import ZoomingImage from "../ZoomingImage/ZoomingImage";
 import CollectionButton from "../CollectionButton/CollectionButton";
+import { use } from "react";
 
-const BestSeller = ({ images }) => {
+const BestSeller = ({ images, ImageComponent }) => {
     const [startIndex, setStartIndex] = useState(0);
     const [itemsPerSlide, setItemsPerSlide] = useState(3);
-
+    const [swipecount, setswipeCount] = useState(3);
     // Adjust number of images per slide based on screen width
     useEffect(() => {
         const updateItemsPerSlide = () => {
             if (window.innerWidth > 1200) {
                 setItemsPerSlide(3); // Large screens: show 3 images
+                setswipeCount(3);
             } else if (window.innerWidth > 768) {
                 setItemsPerSlide(2); // Medium screens: show 2 images
+                setswipeCount(2);
             } else {
                 setItemsPerSlide(1); // Small screens: show 1 image
+                setswipeCount(1);
             }
         };
 
@@ -28,11 +32,13 @@ const BestSeller = ({ images }) => {
     const totalSlides = Math.ceil(images.length / itemsPerSlide);
 
     const handleNext = () => {
-        setStartIndex((prevIndex) => (prevIndex + 1 < totalSlides ? prevIndex + 1 : 0));
+        console.log(totalSlides)
+        setStartIndex((prevIndex) => (prevIndex + swipecount < images.length ? prevIndex + swipecount : 0));
+        console.log(startIndex)
     };
 
     const handlePrev = () => {
-        setStartIndex((prevIndex) => (prevIndex - 1 >= 0 ? prevIndex - 1 : totalSlides - 1));
+        setStartIndex((prevIndex) => (prevIndex - swipecount >= 0 ? prevIndex - swipecount : images.length - 1));
     };
 
     // Swipe handlers
@@ -58,8 +64,9 @@ const BestSeller = ({ images }) => {
                 >
                     {images.map((img, index) => (
                         <div key={index} className="carousel-item" style={{ flex: `0 0 ${100 / itemsPerSlide}%` }}>
-                            <ZoomingImage source={img} />
-                            <CollectionButton text="Text Here" />
+                            <ImageComponent image={img} />
+                            {/* <CollectionButton text="Text Here" /> */}
+                            {ImageComponent === ZoomingImage && <CollectionButton text="Text Here" />}
                         </div>
                     ))}
                 </div>

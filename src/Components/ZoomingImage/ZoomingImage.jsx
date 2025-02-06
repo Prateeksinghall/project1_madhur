@@ -1,10 +1,11 @@
 import React from 'react'
 import './ZoomingImage.scss'
 
-const ZoomingImage = ({ source }) => {
+const ZoomingImage = ({ image }) => {
+    console.log(image)
     return (
         <div className='img-box'>
-            <img src={source} alt="" />
+            <img src={image} alt="" />
         </div>
     )
 }

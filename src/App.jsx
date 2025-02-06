@@ -13,7 +13,7 @@ import Product from "./pages/Product/Product";
 const Layout = () => {
   return (
     <div className="app">
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
       {/* <Footer /> */}
     </div>

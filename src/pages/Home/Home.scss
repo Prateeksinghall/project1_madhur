@@ -7,11 +7,11 @@
 
 /* General Styling */
 .Collections {
-    margin: 0 40px;
+    padding: 3%;
 }
 
 .Collections-text {
-    margin: 50px 0 25px 0;
+    margin: 4% 0 3% 0;
     height: 74.46px;
     display: flex;
     align-items: center;
@@ -23,15 +23,19 @@
 }
 
 /* Collections Section */
+/* Collections Section */
 .Collections-item {
     display: flex;
-    gap: 20px;
+    height: 100%;
     width: 100%;
+    gap: 1%;
     min-height: 60vh; // Ensures it adapts to content
 }
 
 .Collection1,
 .Collection2 {
+    width: 50%;
+    height: 100vh;
     flex-basis: 50%;
     display: flex;
     align-items: center;
@@ -40,6 +44,53 @@
     cursor: pointer;
     padding: 10px; // Increases tap area on mobile
 }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .Collections-item {
+        flex-direction: column; // Stack collections vertically on smaller screens
+    }
+
+    .Collection1,
+    .Collection2 {
+        flex-basis: 100%; // Each collection takes full width on smaller screens
+        height: auto; // Adjust the height of the collections
+        width: 100%;
+    }
+
+    .image-button {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Collections-text {
+        font-size: 40px;
+    }
+
+    .image-button {
+        font-size: 28px;
+        width: 70%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .Collections-text {
+        font-size: 32px;
+    }
+
+    .image-button {
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .shop_now {
+        font-size: 20px;
+        padding: 5px 15px;
+    }
+}
+
 
 /* Collection Button Styling */
 .image-button {
@@ -141,7 +192,7 @@
 
 /* Best Seller Section */
 .best_seller {
-    margin: 50px 40px 0 40px;
+    margin: 3% 2% 3% 2%;
     height: 86vh;
 }
 
@@ -184,9 +235,12 @@
         font-size: 24px;
         padding: 6px 20px;
     }
+
 }
 
 @media (max-width: 480px) {
+
+
     .Collections-text {
         font-size: 32px;
     }
@@ -200,4 +254,41 @@
         font-size: 20px;
         padding: 5px 15px;
     }
+}
+
+
+.testimonials {
+    position: relative;
+    width: 100%;
+    height: 76vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.testimonials_main_bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+
+.TestimanialsCards {
+    position: relative;
+
+    margin: 7% 3% 3% 3%;
+    display: flex;
+    gap: 2%;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    // z-index: 1;
+    flex-wrap: wrap;
 }
