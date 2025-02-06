@@ -32,9 +32,9 @@ const BestSeller = ({ data, ImageComponent }) => {
     const totalSlides = Math.ceil(data.length / itemsPerSlide);
 
     const handleNext = () => {
-        console.log(totalSlides)
+
         setStartIndex((prevIndex) => (prevIndex + swipecount < data.length ? prevIndex + swipecount : 0));
-        console.log(startIndex)
+
     };
 
     const handlePrev = () => {

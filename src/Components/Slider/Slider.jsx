@@ -5,6 +5,7 @@ import image2 from '../../assets/images/homeSliderImage2.jpeg';
 import image3 from '../../assets/images/homeSliderImage3.jpeg';
 import image4 from '../../assets/images/homeSliderImage4.jpeg';
 import image5 from '../../assets/images/homeSliderImage5.jpeg';
+import { useSwipeable } from 'react-swipeable';
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -17,8 +18,15 @@ const Slider = () => {
         setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
     };
 
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: nextSlide,  // Trigger nextSlide on swipe left
+        onSwipedRight: prevSlide,  // Trigger prevSlide on swipe right
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true, // Allows swipe on desktop with mouse drag
+    });
+
     return (
-        <div className="slider">
+        <div className="slider" {...swipeHandlers}>
             <div className="container">
                 {images.map((image, index) => (
                     <img
@@ -30,15 +38,12 @@ const Slider = () => {
                 ))}
             </div>
             <div className='bagaan_title'>Bagaan</div>
-            <div className='shop_now'>Shop Now
-            </div>
+            <div className='shop_now'>Shop Now</div>
             <div className="icons">
                 <div className="icon" onClick={prevSlide}>
-                    {/* Add your left arrow icon */}
                     &#10094;
                 </div>
                 <div className="icon" onClick={nextSlide}>
-                    {/* Add your right arrow icon */}
                     &#10095;
                 </div>
             </div>

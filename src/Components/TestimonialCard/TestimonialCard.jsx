@@ -3,7 +3,6 @@ import { useSwipeable } from "react-swipeable";
 import "./TestimonialCard.scss";
 
 const TestimonialCard = ({ image }) => {
-    console.log(image.title)
     return (
         <div className="TestimonialCard">
             <img src={image.image} alt="Testimonial" className="TestimonialImage" />
