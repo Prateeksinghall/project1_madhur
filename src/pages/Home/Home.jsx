@@ -21,7 +21,9 @@ const testimonialsData = [
     { image: Testimonials3, title: "Alice Johnson", text: "Great experience, will buy again!" },
     { image: Testimonials2, title: "Robert Brown", text: "Exceeded my expectations!" },
     { image: Testimonials3, title: "Emily White", text: "Simply the best! 5 stars." },
-    { image: Testimonials1, title: "Michael Green", text: "Fantastic customer service!" }
+    { image: Testimonials1, title: "Michael Green", text: "Fantastic customer service!" },
+    { image: Testimonials3, title: "Alice Johnson", text: "Great experience, will buy again!" },
+    { image: Testimonials2, title: "Robert Brown", text: "Exceeded my expectations!" }
 ];
 
 const Home = () => {
@@ -46,11 +48,11 @@ const Home = () => {
                 <div className='Collections-text'>Collections</div>
                 <div className='Collections-item'>
                     <div className='Collection1' onClick={() => handleButtonClick('Cotton')} >
-                        <ZoomingImage image={ZoomingImage1} />
+                        <ZoomingImage image={{ image: ZoomingImage1 }} />
                         <CollectionButton text="Cotton" />
                     </div>
                     <div className='Collection2' onClick={() => handleButtonClick('Linen')}>
-                        <ZoomingImage image={ZoomingImage2} />
+                        <ZoomingImage image={{ image: ZoomingImage2 }} />
                         <CollectionButton text="Linen" />
                     </div>
                 </div>
@@ -72,7 +74,7 @@ const Home = () => {
 
             <div className='Collections-text'>Best Sellers</div>
             <div className='best_seller'>
-                <BestSeller images={images} ImageComponent={ZoomingImage} />
+                <BestSeller data={testimonialsData} ImageComponent={ZoomingImage} />
             </div>
             <div className='shop_now'>View All</div>
 
@@ -81,7 +83,8 @@ const Home = () => {
                 <img src={TestimonialsMainBg} alt="Testimonials Background" className='testimonials_main_bg' />
                 {/* <TestimonialCarousel testimonials={testimonialsData} /> */}
                 <div className='TestimanialsCards'>
-                    <BestSeller images={images} ImageComponent={TestimonialCard} /></div>
+                    <BestSeller data={testimonialsData} ImageComponent={TestimonialCard} />
+                </div>
             </div>
         </div >
     )

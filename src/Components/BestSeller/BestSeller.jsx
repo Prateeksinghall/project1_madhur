@@ -5,7 +5,7 @@ import ZoomingImage from "../ZoomingImage/ZoomingImage";
 import CollectionButton from "../CollectionButton/CollectionButton";
 import { use } from "react";
 
-const BestSeller = ({ images, ImageComponent }) => {
+const BestSeller = ({ data, ImageComponent }) => {
     const [startIndex, setStartIndex] = useState(0);
     const [itemsPerSlide, setItemsPerSlide] = useState(3);
     const [swipecount, setswipeCount] = useState(3);
@@ -29,16 +29,16 @@ const BestSeller = ({ images, ImageComponent }) => {
         return () => window.removeEventListener("resize", updateItemsPerSlide);
     }, []);
 
-    const totalSlides = Math.ceil(images.length / itemsPerSlide);
+    const totalSlides = Math.ceil(data.length / itemsPerSlide);
 
     const handleNext = () => {
         console.log(totalSlides)
-        setStartIndex((prevIndex) => (prevIndex + swipecount < images.length ? prevIndex + swipecount : 0));
+        setStartIndex((prevIndex) => (prevIndex + swipecount < data.length ? prevIndex + swipecount : 0));
         console.log(startIndex)
     };
 
     const handlePrev = () => {
-        setStartIndex((prevIndex) => (prevIndex - swipecount >= 0 ? prevIndex - swipecount : images.length - 1));
+        setStartIndex((prevIndex) => (prevIndex - swipecount >= 0 ? prevIndex - swipecount : data.length - 1));
     };
 
     // Swipe handlers
@@ -62,7 +62,7 @@ const BestSeller = ({ images, ImageComponent }) => {
                         transform: `translateX(-${startIndex * (100 / itemsPerSlide)}%)`,
                     }}
                 >
-                    {images.map((img, index) => (
+                    {data.map((img, index) => (
                         <div key={index} className="carousel-item" style={{ flex: `0 0 ${100 / itemsPerSlide}%` }}>
                             <ImageComponent image={img} />
                             {/* <CollectionButton text="Text Here" /> */}
