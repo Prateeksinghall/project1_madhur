@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NataLogo from "../../assets/images/NaataNavBar.png";
 import { IoCartOutline, IoPersonOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
@@ -25,7 +25,7 @@ const Menu = [
                 id: 22,
                 name: "Shop by Fabric",
                 link: "#",
-                subMenu: [
+                nested_subMenu: [
                     { id: 231, name: "Pure Cotton", link: "/#" },
                     { id: 232, name: "Woolen", link: "/#" },
                     { id: 233, name: "Silk", link: "/#" },
@@ -48,7 +48,7 @@ const Menu = [
                 id: 22,
                 name: "Shop by Fabric",
                 link: "#",
-                subMenu: [
+                nested_subMenu: [
                     { id: 231, name: "Pure Cotton", link: "/#" },
                     { id: 232, name: "Woolen", link: "/#" },
                     { id: 233, name: "Silk", link: "/#" },
@@ -71,7 +71,7 @@ const Menu = [
                 id: 22,
                 name: "Shop by Fabric",
                 link: "#",
-                subMenu: [
+                nested_subMenu: [
                     { id: 231, name: "Pure Cotton", link: "/#" },
                     { id: 232, name: "Woolen", link: "/#" },
                     { id: 233, name: "Silk", link: "/#" },
@@ -83,16 +83,12 @@ const Menu = [
 ];
 
 const Navbar = () => {
-    const [openMenus, setOpenMenus] = useState({});
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-
     return (
-        <nav className={`navbar ${isMenuOpen ? "menu-open" : ""}`} >
+        <nav className={`navbar`} >
 
             <div className="leftNavBar">
                 <img src={NataLogo} alt="Logo" className="logo" />
-                <ul className="menu" onClick={(e) => e.stopPropagation()}>
+                <ul className="menu" >
                     {Menu.map((item) => (
                         <li key={item.id} className={item.subMenu ? "has-nested-submenu" : ""}>
                             <a href={item.link}>
@@ -105,12 +101,12 @@ const Navbar = () => {
                                             <li key={subItem.id} >
                                                 <a href={subItem.link}>
                                                     <span className="submenu-text">{subItem.name}</span>
-                                                    {subItem.subMenu && <LiaGreaterThanSolid className="submenu-arrow" />}
+                                                    {/* {subItem.nested_subMenu && <LiaGreaterThanSolid className="submenu-arrow" />} */}
 
                                                 </a>
-                                                {subItem.subMenu && (
+                                                {subItem.nested_subMenu && (
                                                     <ul className="nested-submenu">
-                                                        {subItem.subMenu.map((nestedItem) => (
+                                                        {subItem.nested_subMenu.map((nestedItem) => (
                                                             <li key={nestedItem.id}>
                                                                 <a href={nestedItem.link}>{nestedItem.name}</a>
                                                             </li>

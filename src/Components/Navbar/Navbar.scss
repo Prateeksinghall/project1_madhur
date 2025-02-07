@@ -3,19 +3,16 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 158px;
-    padding: 0 40px;
-    background-color: transparent;
-
-    position: relative;
+    height: 22%;
+    padding: 0 3%;
+    background-color: white;
+    position: absolute;
     font-family: 'LemonMilk', sans-serif;
     font-weight: normal;
     transition: background-color 0.3s ease;
-    position: absolute;
     z-index: 10;
 
-    &:hover,
-    &.menu-open {
+    &:hover {
         background-color: white;
 
         .menu li a {
@@ -28,15 +25,18 @@
     }
 }
 
+/* ✅ Ensure left menu is centered properly */
 .leftNavBar {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     left: 50%;
+    height: 100%;
     transform: translateX(-50%);
     background-color: transparent;
     transition: background-color 0.3s ease;
+    width: max-content;
 
     .logo {
         max-width: 284px;
@@ -48,90 +48,105 @@
     .menu {
         list-style: none;
         display: flex;
-        gap: 20px;
-        margin-top: 10px;
-        padding: 0;
-        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        width: max-content;
+        gap: 50px;
 
         li {
-            padding: 10px 15px;
             position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             a {
                 text-decoration: none;
                 font-size: 18px;
                 font-weight: normal;
-                color: white;
+                color: #883B36;
                 transition: color 0.3s ease;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                gap: 5px;
             }
 
-            /* Show submenu when hovering over menu item */
-            &:hover .submenu {
-                display: block;
-            }
-
-            .submenu {
-                list-style: none;
-                position: absolute;
-                top: 100%;
-                padding: 10%;
-                left: 0;
-                background: white;
-
+            &:hover>.submenu {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
                 width: max-content;
-                z-index: 5;
-                display: none;
-                /* Hidden by default */
-                white-space: nowrap;
-                z-index: 1000;
-                border: 1px solid #883B36;
-            }
-
-            /* Ensure submenu remains visible when hovering over the submenu */
-            &:hover>.submenu,
-            .submenu:hover {
-                display: block;
-            }
-
-            .submenu li {
-                position: relative;
-
-                /* Show nested submenu when hovering over submenu item */
-                &:hover>.nested-submenu {
-                    display: block;
-                }
-
-                .nested-submenu {
-                    list-style: none;
-                    position: absolute;
-                    top: 0;
-                    left: calc(110%);
-                    padding: 0px 20px;
-                    background: white;
-                    padding: 10px;
-                    width: max-content;
-                    z-index: 100;
-                    white-space: nowrap;
-                    display: none;
-                    /* Hidden by default */
-                    z-index: 1000;
-                    border: 1px solid #883B36;
-                    font-size: 10px;
-                }
+                gap: 20px;
+                padding: 20px 0 20px 20px;
             }
         }
     }
 }
 
+/* ✅ Common styles for submenu and nested submenu */
+.submenu,
+.nested-submenu {
+    list-style: none;
+    position: absolute;
+    background: white;
+    z-index: 10;
+    border: 1px solid #883B36;
+    display: none;
+    // white-space: nowrap;
+    width: max-content;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    // padding: 10px 0;
+}
+
+/* ✅ Submenu positioning */
+.submenu {
+    top: 100%;
+    left: 0;
+}
+
+/* ✅ Nested submenu positioning */
+.nested-submenu {
+    top: 0;
+    left: 100%;
+}
+
+/* ✅ List item styling for both submenus */
+.submenu li,
+.nested-submenu li {
+    a {
+        width: 100%;
+        // padding-right: 2%;
+        display: flex;
+
+    }
+
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding-right: 20px;
+}
+
+/* ✅ Ensure the nested submenu opens only when hovering over the specific submenu item */
+.submenu li:hover>.nested-submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: max-content;
+    gap: 20px;
+    padding: 20px 0 20px 20px;
+}
+
+/* ✅ Right Navbar Icons */
 .rightNavBar {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 20%;
+    width: max-content;
     margin-left: auto;
     gap: 20px;
 
@@ -139,6 +154,6 @@
         font-size: 40px;
         cursor: pointer;
         transition: color 0.3s ease;
-        color: white;
+        color: #883B36;
     }
 }

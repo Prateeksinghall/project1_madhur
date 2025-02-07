@@ -12,11 +12,8 @@
         /* Scale the card slightly on hover */
         .TestimonialImage {
             transform: scale(1.3);
-            /* Scale the image slightly */
         }
-
     }
-
 }
 
 .TestimonialImage {
@@ -27,79 +24,73 @@
     opacity: 1;
     transition: transform 0.3s ease;
     transform-origin: top;
-
-
-
-    /* Smooth transition for image scaling */
 }
 
+/* ✅ Center the title perfectly */
 .TestimonialTitle {
     position: absolute;
     top: 50%;
+    /* Centered vertically */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+    /* Perfect center */
     font-size: 24px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 2;
     transition: transform 0.3s ease;
-    /* Smooth transition for title movement */
 }
 
+/* ✅ Position the text slightly below the title */
 .TestimanialText {
     position: absolute;
-    top: 70%;
+    top: 60%;
+    /* Slightly below the title */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     width: 80%;
     font-size: 16px;
     color: white;
     z-index: 2;
     transition: transform 0.3s ease;
-    /* Smooth transition for text movement */
 }
 
+/* ✅ Move both Title & Text upwards on hover */
 .TestimonialCard:hover .TestimonialTitle {
-    transform: translate(-50%, -1000%);
-    /* Move title upwards when card is hovered */
+    transform: translate(-50%, -100%);
 }
 
 .TestimonialCard:hover .TestimanialText {
-    transform: translateX(-50%) translateY(-60%);
-    /* Move testimonial text upwards */
+    transform: translate(-50%, -60%);
 }
 
+/* ✅ Responsive Adjustments */
 @media (max-width: 768px) {
-    // .TestimonialCard {
-    //     transform: none;
-    //     /* Remove scaling on hover for small screens */
-    // }
-
-
     .TestimonialTitle {
         font-size: 18px;
-        transform: translateX(-50%) translateY(-1000%);
-        /* Reduce text size */
     }
 
     .TestimanialText {
-        font-size: 16px;
-        transform: translateX(-50%) translateY(-60%);
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
-
-
     .TestimonialTitle {
-        font-size: 18px;
-        transform: translateX(-50%) translateY(-1000%);
+        transform: translate(-50%, -1000%);
+        font-size: 16px;
     }
 
     .TestimanialText {
-        font-size: 16px;
-        transform: translateX(-50%) translateY(-60%);
-        /* Ensure text fits */
+        font-size: 14px;
+    }
+
+    .TestimonialCard:hover .TestimonialTitle {
+        transform: translate(-50%, -1000%);
+    }
+
+    .TestimonialCard:hover .TestimanialText {
+        transform: translate(-50%, -60%);
     }
 }
