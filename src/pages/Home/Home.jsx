@@ -14,6 +14,8 @@ import TestimonialCard from '../../Components/TestimonialCard/TestimonialCard';
 import Testimonials1 from '../../assets/images/testimonials/testimonials1.png'
 import Testimonials2 from '../../assets/images/testimonials/testimonials2.png'
 import Testimonials3 from '../../assets/images/testimonials/testimonials3.png'
+import HomeVideo from '../../Components/HomeVideo/HomeVideo'
+import HomeVideoSrc from '../../assets/videos/homeVideo.mp4'
 
 const testimonialsData = [
     { image: Testimonials1, title: "John Doe", text: "Amazing product! Highly recommend." },
@@ -25,6 +27,8 @@ const testimonialsData = [
     { image: Testimonials3, title: "Alice Johnson", text: "Great experience, will buy again!" },
     { image: Testimonials2, title: "Robert Brown", text: "Exceeded my expectations!" }
 ];
+
+const aboutUsData = { image: Testimonials3, title: "Text Goes Here", text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." }
 
 const Home = () => {
     const images = [ZoomingImage1, ZoomingImage2, img1, img2, ZoomingImage2, ZoomingImage1, ZoomingImage2, img1, img2, ZoomingImage2]
@@ -81,11 +85,21 @@ const Home = () => {
             <div className='Collections-text'>Customer Testimonials</div>
             <div className='testimonials'>
                 <img src={TestimonialsMainBg} alt="Testimonials Background" className='testimonials_main_bg' />
-                {/* <TestimonialCarousel testimonials={testimonialsData} /> */}
                 <div className='TestimanialsCards'>
                     <BestSeller data={testimonialsData} ImageComponent={TestimonialCard} />
                 </div>
             </div>
+
+            <div className='homeVideo'>
+                <HomeVideo videoSrc={HomeVideoSrc} />
+            </div>
+
+            <div className='Collections-text'>About Us</div>
+            <div className='AboutUs'>
+                <TestimonialCard image={aboutUsData} />
+            </div>
+
+
         </div >
     )
 }

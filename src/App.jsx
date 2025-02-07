@@ -9,12 +9,14 @@ import Footer from './Components/Footer/Footer'
 import Home from "./pages/home/home";
 import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
+import SecondFooter from "./Components/SecondFooter/SecondFooter";
 
 const Layout = () => {
   return (
     <div className="app">
-      {/* <Navbar /> */}
+      {/* <Navbar />   */}
       <Outlet />
+      <SecondFooter />
       {/* <Footer /> */}
     </div>
   )

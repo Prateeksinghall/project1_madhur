@@ -1,10 +1,3 @@
-@font-face {
-    font-family: 'LemonMilk';
-    src: url('../../assets/Fonts/LEMONMILK-Regular.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .navbar {
     display: flex;
     align-items: center;
@@ -13,6 +6,7 @@
     height: 158px;
     padding: 0 40px;
     background-color: transparent;
+
     position: relative;
     font-family: 'LemonMilk', sans-serif;
     font-weight: normal;
@@ -73,77 +67,62 @@
                 display: flex;
                 align-items: center;
                 gap: 5px;
+            }
 
+            /* Show submenu when hovering over menu item */
+            &:hover .submenu {
+                display: block;
             }
 
             .submenu {
                 list-style: none;
                 position: absolute;
-                top: calc(100% + 7px);
+                top: 100%;
+                padding: 10%;
                 left: 0;
                 background: white;
-                padding: 0px;
+
                 width: max-content;
                 z-index: 5;
-                /* Makes width dynamic based on content */
-                white-space: nowrap;
-                /* Prevents text from wrapping */
                 display: none;
+                /* Hidden by default */
+                white-space: nowrap;
                 z-index: 1000;
                 border: 1px solid #883B36;
             }
 
-            .submenu.active {
+            /* Ensure submenu remains visible when hovering over the submenu */
+            &:hover>.submenu,
+            .submenu:hover {
                 display: block;
             }
 
-            .submenu li a {
-                display: flex;
-                align-items: center;
-                gap: 30px; // Adjust this value for more or less spacing
-            }
-
-            .submenu-text {
-                flex-shrink: 0; // Prevents text from shrinking
-            }
-
-            .submenu-arrow {
-                font-size: 15px; // Adjust icon size if needed
-            }
-
-            .nested-submenu {
-                list-style: none;
-                position: absolute;
-                top: 0;
-                left: calc(100%);
-                padding: 0px 20px;
-                background: white;
-                padding: 10px;
-                width: max-content;
-                z-index: 100;
-                /* Makes width dynamic based on content */
-                white-space: nowrap;
-                display: none;
-                z-index: 1000;
-                border: 1px solid #883B36;
-                font-size: 10px;
-            }
-
-            /* Show nested submenu on hover */
-            &:hover>.nested-submenu {
-                display: block;
-            }
-
-            /* Add ">" symbol for submenus that contain nested submenus */
-            .submenu>li {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+            .submenu li {
                 position: relative;
-                padding: 10px 20px;
-            }
 
+                /* Show nested submenu when hovering over submenu item */
+                &:hover>.nested-submenu {
+                    display: block;
+                }
+
+                .nested-submenu {
+                    list-style: none;
+                    position: absolute;
+                    top: 0;
+                    left: calc(110%);
+                    padding: 0px 20px;
+                    background: white;
+                    padding: 10px;
+                    width: max-content;
+                    z-index: 100;
+                    white-space: nowrap;
+                    display: none;
+                    /* Hidden by default */
+                    z-index: 1000;
+                    border: 1px solid #883B36;
+                    font-size: 10px;
+                }
+            }
         }
     }
 }
@@ -161,6 +140,5 @@
         cursor: pointer;
         transition: color 0.3s ease;
         color: white;
-
     }
 }

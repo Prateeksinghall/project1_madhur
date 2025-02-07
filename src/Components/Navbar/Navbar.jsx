@@ -86,84 +86,40 @@ const Navbar = () => {
     const [openMenus, setOpenMenus] = useState({});
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleSubmenu = (id, e) => {
-        e.stopPropagation();
-
-        setOpenMenus((prev) => {
-            const newState = { ...prev };
-
-            // Toggle the clicked menu item
-            newState[id] = !newState[id];
-
-            // Close all other menus
-            Object.keys(newState).forEach((key) => {
-                if (key !== id.toString()) {
-                    newState[key] = false;
-                }
-            });
-
-            // Check if any menu is still open
-            const anyMenuOpen = Object.values(newState).some((isOpen) => isOpen);
-            setIsMenuOpen(anyMenuOpen);
-
-            return newState;
-        });
-    };
-
-
-
-    const closeAllMenus = () => {
-        setOpenMenus({});
-        setIsMenuOpen(false);
-    };
 
     return (
-        <nav className={`navbar ${isMenuOpen ? "menu-open" : ""}`} onClick={closeAllMenus}>
-            {/* Left Side: Logo + Menu */}
+        <nav className={`navbar ${isMenuOpen ? "menu-open" : ""}`} >
+
             <div className="leftNavBar">
                 <img src={NataLogo} alt="Logo" className="logo" />
                 <ul className="menu" onClick={(e) => e.stopPropagation()}>
                     {Menu.map((item) => (
                         <li key={item.id} className={item.subMenu ? "has-nested-submenu" : ""}>
-                            <a
-                                href={item.link}
-                                onClick={(e) => {
-                                    if (item.subMenu) {
-                                        e.preventDefault();
-                                        toggleSubmenu(item.id, e);
-                                    }
-                                }}
-                            >
+                            <a href={item.link}>
                                 {item.name}
                             </a>
                             {item.subMenu && (
-                                <ul className={`submenu ${openMenus[item.id] ? "active" : ""}`}>
-                                    {item.subMenu.map((subItem) => (
-                                        <li key={subItem.id} className={subItem.subMenu ? "has-nested-submenu" : ""}>
-                                            <a
-                                                href={subItem.link}
-                                                onClick={(e) => {
-                                                    if (subItem.subMenu) {
-                                                        e.preventDefault();
-                                                        toggleSubmenu(subItem.id, e);
-                                                    }
-                                                }}
-                                            >
-                                                <span className="submenu-text">{subItem.name}</span>
-                                                {subItem.subMenu && <LiaGreaterThanSolid className="submenu-arrow" />}
+                                <ul className="submenu" >
+                                    {
+                                        item.subMenu.map((subItem) => (
+                                            <li key={subItem.id} >
+                                                <a href={subItem.link}>
+                                                    <span className="submenu-text">{subItem.name}</span>
+                                                    {subItem.subMenu && <LiaGreaterThanSolid className="submenu-arrow" />}
 
-                                            </a>
-                                            {subItem.subMenu && (
-                                                <ul className={`nested-submenu ${openMenus[subItem.id] ? "active" : ""}`}>
-                                                    {subItem.subMenu.map((nestedItem) => (
-                                                        <li key={nestedItem.id}>
-                                                            <a href={nestedItem.link}>{nestedItem.name}</a>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                        </li>
-                                    ))}
+                                                </a>
+                                                {subItem.subMenu && (
+                                                    <ul className="nested-submenu">
+                                                        {subItem.subMenu.map((nestedItem) => (
+                                                            <li key={nestedItem.id}>
+                                                                <a href={nestedItem.link}>{nestedItem.name}</a>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </li>
+                                        ))
+                                    }
                                 </ul>
                             )}
                         </li>
@@ -177,7 +133,7 @@ const Navbar = () => {
                 <IoCartOutline className="icon" />
                 <IoPersonOutline className="icon" />
             </div>
-        </nav>
+        </nav >
     );
 };
 
