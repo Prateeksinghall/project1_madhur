@@ -22,23 +22,33 @@ const Footer = () => {
                         <li><FaXTwitter /></li>
                     </ul>
                 </div>
-                <div className='our_company1'>
-                    <h4>OUR COMPANY</h4>
-                    <ul>
-                        <li>About Us</li>
-                        <li>Photo Gallery</li>
-                        <li>Testimonial</li>
-                        <li>Blog</li>
-                    </ul>
-                </div>
-                <div className='our_company2'>
-                    <h4>OUR COMPANY</h4>
-                    <ul>
-                        <li>About Us</li>
-                        <li>Photo Gallery</li>
-                        <li>Testimonial</li>
-                        <li>Blog</li>
-                    </ul>
+                <div className='footer__middle'>
+                    <div className='our_company'>
+                        <div className='our_company1'>
+                            <h4>OUR COMPANY</h4>
+                            <ul>
+                                <li>About Us</li>
+                                <li>Photo Gallery</li>
+                                <li>Testimonial</li>
+                                <li>Blog</li>
+                            </ul>
+                        </div>
+                        <div className='our_company2'>
+                            <h4>OUR COMPANY</h4>
+                            <ul>
+                                <li>About Us</li>
+                                <li>Photo Gallery</li>
+                                <li>Testimonial</li>
+                                <li>Blog</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className='footer__payments'>
+                        <img src={NetBanking} alt="" />
+                        <img src={Rupay} alt="" />
+                        <img src={MasterCard} alt="" />
+                        <img src={VisaCard} alt="" />
+                    </div>
                 </div>
                 <div className='footer_right'>
                     <div>
@@ -55,12 +65,6 @@ const Footer = () => {
                 </div>
             </div>
             <div className='footer__down'>
-                <div className='footer__payments'>
-                    <img src={NetBanking} alt="" />
-                    <img src={Rupay} alt="" />
-                    <img src={MasterCard} alt="" />
-                    <img src={VisaCard} alt="" />
-                </div>
                 <h5>CopyRight</h5>
                 <h5>CopyRight</h5>
             </div>

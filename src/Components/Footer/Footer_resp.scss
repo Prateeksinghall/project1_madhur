@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../../assets/Styles/Fonts/LEMONMILK-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.footer {
+    background-color: #a85c27;
+    color: white;
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 16px;
+
+    .footer__up {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .footer__down {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    &__left,
+    &__middle,
+    .footer_right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 25%;
+    }
+
+    &__left {
+        img {
+            width: 150px;
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            font-size: 24px;
+        }
+    }
+
+    &__middle {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .our_company {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .our_company1 {
+        border: 2px solid blue;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        ul {
+            border: 1px solid red;
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .our_company2 {
+        border: 2px solid blue;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        ul {
+            display: flex;
+            // width: max-content;
+            flex-direction: column;
+            align-items: end;
+            border: 1px solid red;
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+
+            li {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .footer__payments {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: center;
+        width: 100%;
+
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+    }
+
+    .footer_right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        padding: 30px 10px;
+        align-items: center;
+        text-align: center;
+
+        .footer__up {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__left,
+        &__middle,
+        .footer_right {
+            width: 100%;
+            align-items: center;
+        }
+
+        .footer__socials {
+            justify-content: center;
+        }
+
+        .our_company {
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+
+        .our_company1,
+        .our_company2 {
+            align-items: center;
+        }
+
+        .footer__payments {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+
+            img {
+                width: 40px;
+                height: auto;
+            }
+        }
+
+        .footer__down {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        font-size: 14px;
+
+        .footer__down {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer__socials {
+            font-size: 20px;
+        }
+
+        .footer__payments img {
+            width: 35px;
+        }
+    }
+}
