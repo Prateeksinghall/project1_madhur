@@ -1,0 +1,44 @@
+.products {
+    margin: 24vh 2.4rem 0 2.4rem;
+
+    .productsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.25rem;
+
+        .productItem {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .productImage {
+                width: 20.8rem;
+                height: 29rem;
+            }
+
+            .productBInfo {
+                font-size: 16px;
+                color: #883B36;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: .5rem;
+
+                .productRatings {
+                    display: flex;
+                    gap: 0.3rem;
+                }
+
+                .filled {
+                    color: #883B36; // Filled stars
+                }
+
+                .unfilled {
+                    color: #d3d3d3; // Greyed out stars
+                }
+            }
+        }
+    }
+}

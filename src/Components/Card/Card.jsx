@@ -9,8 +9,8 @@ const Card = ({ source }) => {
   return (
     <div className="card">
       <div className="image" >
-        <img src={source.first} alt="" className="mainImg" />
-        <img src={source.second} alt="" className="secondImg" />
+        <img src={source.first} alt="Loading the Image" className="mainImg" loading='lazy' />
+        <img src={source.second} alt="Loading the image" className="secondImg" />
       </div>
     </div>
   )
