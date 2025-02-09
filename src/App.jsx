@@ -14,7 +14,7 @@ import SecondFooter from "./Components/SecondFooter/SecondFooter";
 const Layout = () => {
   return (
     <div className="app">
-      {/* <Navbar /> */}
+      <Navbar />
       <Outlet />
       <SecondFooter />
       <Footer />

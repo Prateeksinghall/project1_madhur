@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Slider.scss';
-import image1 from '../../assets/images/homeSliderImage1.jpeg';
-import image2 from '../../assets/images/homeSliderImage2.jpeg';
+import image2 from '../../assets/images/homeSliderImage1.jpeg';
+import image4 from '../../assets/images/homeSliderImage2.jpeg';
 import image3 from '../../assets/images/homeSliderImage3.jpeg';
-import image4 from '../../assets/images/homeSliderImage4.jpeg';
+import image1 from '../../assets/images/homeSliderImage4.jpeg';
 import image5 from '../../assets/images/homeSliderImage5.jpeg';
 import { useSwipeable } from 'react-swipeable';
 

@@ -52,7 +52,7 @@ const BestSeller = ({ data, ImageComponent }) => {
     return (
         <div className="carousel-container" {...handlers}>
             <button className="carousel-btn left" onClick={handlePrev}>
-                &#9665;
+                &#10094;
             </button>
 
             <div className="carousel-wrapper">
@@ -73,7 +73,7 @@ const BestSeller = ({ data, ImageComponent }) => {
             </div>
 
             <button className="carousel-btn right" onClick={handleNext}>
-                &#9655;
+                &#10095;
             </button>
         </div>
     );

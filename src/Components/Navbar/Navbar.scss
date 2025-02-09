@@ -5,7 +5,7 @@
     width: 100%;
     height: 22%;
     padding: 0 3%;
-    background-color: white;
+    // background-color: grey;  
     position: absolute;
     font-family: 'LemonMilk', sans-serif;
     font-weight: normal;
@@ -48,18 +48,20 @@
     .menu {
         list-style: none;
         display: flex;
-        align-items: center;
+        align-items: end;
         justify-content: space-between;
         height: 100%;
-        width: max-content;
-        gap: 50px;
+        width: 40vw;
 
         li {
             position: relative;
             height: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: end;
+            padding-bottom: 10px;
+            width: max-content;
+            padding-right: 5%;
 
             a {
                 text-decoration: none;
@@ -76,9 +78,13 @@
                 display: flex;
                 flex-direction: column;
                 align-items: start;
-                width: max-content;
-                gap: 20px;
-                padding: 20px 0 20px 20px;
+                width: 12rem;
+                // gap: 20px;
+                padding: 5px 0 5px 20px;
+
+                li {
+                    width: 100%;
+                }
             }
         }
     }
@@ -97,7 +103,7 @@
     width: max-content;
     flex-direction: column;
     align-items: start;
-    gap: 10px;
+    // gap: 10px;
     // padding: 10px 0;
 }
 
@@ -116,10 +122,13 @@
 /* ✅ List item styling for both submenus */
 .submenu li,
 .nested-submenu li {
+    padding: 10px 0 0px 0;
+
     a {
         width: 100%;
         // padding-right: 2%;
         display: flex;
+        justify-content: space-between;
 
     }
 
@@ -136,9 +145,13 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: max-content;
-    gap: 20px;
-    padding: 20px 0 20px 20px;
+    width: 8rem;
+    // gap: 20px;
+    padding: 5px 0 5px 20px;
+
+    li {
+        width: 100%;
+    }
 }
 
 /* ✅ Right Navbar Icons */
@@ -154,6 +167,192 @@
         font-size: 40px;
         cursor: pointer;
         transition: color 0.3s ease;
+        color: #883B36;
+    }
+}
+
+
+
+.smallNavBar {
+    // position: absolute;
+    z-index: 10;
+}
+
+.smallNavBarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    background-color: transparent;
+
+    .smallLogo {
+        max-width: 200px;
+        max-height: 80px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .smallToggle {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        padding-right: 100px;
+
+
+        .smallNavOpen,
+        .smallNavClose {
+            color: #883B36;
+            position: absolute;
+            width: max-content;
+            height: max-content;
+            inset: 0;
+            margin: auto;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: opacity 0.1s, transform .4s;
+        }
+
+        .smallNavClose {
+            opacity: 0;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1118px) {
+    .smallMenu {
+        position: absolute;
+        left: 0;
+        top: 80px;
+        width: 100%;
+        height: 20%;
+        // background-color: GREY;
+        height: calc(100vh - 80px);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+        border-bottom: 1px solid #883B36;
+        // margin-bottom: 20%;
+    }
+
+    .smallMenu::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .smallList {
+        // background-color: darkgray;
+        // padding-top: 1rem;
+    }
+}
+
+.smallMenuLi {
+    // color: white;
+    // background-color: lightblue;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color .3s;
+    flex-direction: column;
+    // border-bottom: 1px solid #883B36;
+
+    a {
+        font-size: 16px;
+        width: 100%;
+        text-decoration: none;
+        color: #883B36;
+    }
+
+    ul {
+        width: 100%;
+        padding-top: 10px;
+    }
+}
+
+.smallMenuLi:hover {
+    // background-color: grey;
+}
+
+.show-menu {
+    opacity: 1;
+    top: 80px;
+    pointer-events: initial;
+    z-index: 1000;
+    background-color: white;
+}
+
+.smallToggle.show-toggle .smallNavOpen {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.smallToggle.show-toggle .smallNavClose {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.dropdown__menu {
+    cursor: pointer;
+}
+
+.dropdown__link,
+.dropdown__sublink {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 1.25rem 1.25rem 1.25rem 0;
+    margin-left: 2.5rem;
+    border-bottom: 1px solid #883B36;
+    color: #883B36;
+    ;
+    // background-color: azure;
+    align-items: center;
+    column-gap: .5rem;
+    transition: background-color .3s;
+}
+
+.dropdown__sublink {
+    // background-color: blanchedalmond;
+    margin-left: 4.5rem;
+}
+
+.dropdown__link:hover,
+.dropdown__sublink:hover {
+    // background-color: GREY;
+}
+
+.dropdown__menu,
+.dropdown__submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease-out;
+}
+
+.dropdown__item:hover .dropdown__menu,
+.dropdown__subitem:hover .dropdown__submenu {
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+.dropdown__item:hover .dropdown__menu {
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+.smallRightNavBar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 10px 20px;
+    // position: absolute;
+    // bottom: 3px;
+    // left: 10px;
+    width: max-content;
+
+    .icon {
+        font-size: 32px;
+        cursor: pointer;
         color: #883B36;
     }
 }
