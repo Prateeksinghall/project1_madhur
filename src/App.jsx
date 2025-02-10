@@ -8,7 +8,7 @@ import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 import Home from "./pages/home/home";
 import Products from "./pages/Products/Products";
-import Product from "./pages/Product/Product";
+// import Product from "./pages/Product/Product";
 import SecondFooter from "./Components/SecondFooter/SecondFooter";
 
 const Layout = () => {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <Product />
+        // element: <Product />
       },
     ],
   },
