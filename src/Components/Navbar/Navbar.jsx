@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NataLogo from "../../assets/images/NaataNavBar.png";
 import { IoCartOutline, IoPersonOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
@@ -85,6 +86,7 @@ const Menu = [
 ];
 
 const Navbar = () => {
+    const navigate = useNavigate();
     return (
         <nav className={`navbar`} >
 
@@ -128,8 +130,8 @@ const Navbar = () => {
             {/* Right Side: Icons */}
             <div className="rightNavBar">
                 <IoIosSearch className="icon" />
-                <IoCartOutline className="icon" />
-                <IoPersonOutline className="icon" />
+                <IoCartOutline className="icon" onClick={() => navigate("/cart")} />  {/* Navigate to Cart */}
+                <IoPersonOutline className="icon" onClick={() => navigate("/login")} />
             </div>
         </nav >
     );
@@ -137,7 +139,9 @@ const Navbar = () => {
 
 
 const NavBarSmall = () => {
+    const navigate = useNavigate();
     return (
+
         <nav className="smallNavBar">
             <div className="smallNavBarContainer">
                 <img src={NataLogo} alt="" className="smallLogo" />
@@ -194,8 +198,8 @@ const NavBarSmall = () => {
 
                 <div className="smallRightNavBar">
                     <IoIosSearch className="icon" />
-                    <IoCartOutline className="icon" />
-                    <IoPersonOutline className="icon" />
+                    <IoCartOutline className="icon" onClick={() => navigate("/cart")} />  {/* Navigate to Cart */}
+                    <IoPersonOutline className="icon" onClick={() => navigate("/login")} />
                 </div>
             </div>
         </nav>
