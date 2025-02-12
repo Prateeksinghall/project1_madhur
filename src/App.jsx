@@ -31,6 +31,7 @@ const Layout = () => {
 // Protect Private Pages
 const PrivateRoute = ({ children }) => {
   const user = useSelector(state => state.auth.user);
+  console.log(user)
   return user ? children : <Navigate to="/login" />;
 };
 
