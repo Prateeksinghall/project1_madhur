@@ -24,11 +24,12 @@ const data = [
     { first: "/src/assets/images/Products/product_9_1.png", second: "/src/assets/images/Products/product_9_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 }
 ];
 
-const Products = () => {
+const Products = ({ source }) => {
+    const Pdata = source || data;
     return (
         <div className='products'>
             <ul className='productsContainer'>
-                {data.map((item, index) => {
+                {Pdata.map((item, index) => {
                     const fullStars = Math.floor(item.ratings); // Get whole number of stars
                     const hasHalfStar = item.ratings % 1 !== 0; // Check if there's a half star
 

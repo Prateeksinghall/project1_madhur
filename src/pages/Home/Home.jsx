@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react'
 import './Home.scss'
+import { useNavigate } from "react-router-dom";
 import Slider from '../../Components/Slider/Slider'
 import ZoomingImage from '../../Components/ZoomingImage/ZoomingImage'
 import ZoomingImage1 from '../../assets/images/ZoomingImage1.jpeg'
@@ -44,7 +45,7 @@ const Home = () => {
 
     const [index, setIndex] = useState(0);
 
-
+    const navigate = useNavigate();
     return (
         <div className='home'>
             <Slider />
@@ -66,7 +67,7 @@ const Home = () => {
                 <div className='Collections-text'>Categories</div>
                 <div className='Categories-item'>
                     {["MUL COTTON", "PURE COTTON", "COTTON ZARI", "COTTON ZAMDANI"].map((category, idx) => (
-                        <div className='Categories-card' key={idx}>
+                        <div className='Categories-card' key={idx} onClick={() => navigate(`/categories/${idx + 1}`)}>
                             <div className='cards'><Card source={source} /></div>
                             <span>{category}</span>
                         </div>

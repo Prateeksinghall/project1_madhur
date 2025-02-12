@@ -10,6 +10,7 @@ import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import Login from "./pages/Login/Login";
 import Orders from "./pages/Order/Order";
+import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 
 const Layout = () => {
   const location = useLocation();  // Get the current route
@@ -44,6 +45,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="products/:id" element={<Products />} />
           <Route path="login" element={<Login />} />
+          <Route path="categories/:id" element={<CategoriesPage />} />
 
           {/* Protected Routes (Cart, Checkout, Orders) */}
           <Route path="cart" element={<Cart />} />

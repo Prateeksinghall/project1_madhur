@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'Ragilen';
+    src: url('../../assets/Fonts/ragilen/Ragilen.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.CategoriesPage {
+    width: 100%;
+
+    .CategoriesHeader {
+        position: relative;
+        /* Needed to position the span over the image */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 250vh;
+        /* Set a fixed height for better responsiveness */
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        span {
+            position: absolute;
+            /* Place it over the image */
+            color: white;
+            font-size: 5rem;
+            // font-weight: bold;
+            font-family: 'Ragilen';
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    /* Media query for responsiveness */
+    @media (max-width: 768px) {
+        .CategoriesHeader {
+            height: 150vh;
+
+            /* Reduce height on smaller screens */
+            span {
+                font-size: 2.5rem;
+                /* Adjust font size */
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .CategoriesHeader {
+            height: 150px;
+
+            /* Further reduce height on very small screens */
+            span {
+                font-size: 1.2rem;
+                /* Adjust font size for small screens */
+            }
+        }
+    }
+}
