@@ -11,12 +11,13 @@ import Checkout from "./pages/Checkout/Checkout";
 import Login from "./pages/Login/Login";
 import Orders from "./pages/Order/Order";
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
+import Register from "./pages/Register/Register";
 
 const Layout = () => {
   const location = useLocation();  // Get the current route
 
   // Hide Navbar and Footer on the login page
-  const hideNavbarAndFooter = location.pathname === "/login" || location.pathname === "/cart";
+  const hideNavbarAndFooter = location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/cart";
 
 
   return (
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="products/:id" element={<Products />} />
           <Route path="login" element={<Login />} />
           <Route path="categories/:id" element={<CategoriesPage />} />
+          <Route path="register" element={<Register />} />
 
           {/* Protected Routes (Cart, Checkout, Orders) */}
           <Route path="cart" element={<Cart />} />

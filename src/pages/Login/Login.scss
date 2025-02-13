@@ -1,0 +1,236 @@
+.Login {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 5vw;
+    font-family: Arial, sans-serif;
+
+    .leftLogin,
+    .rightLogin {
+        width: 48%;
+        padding: 3vw;
+        // border: 1px solid #ccc;
+        // border-radius: 1rem;
+        // box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    }
+
+    .leftLogin {
+        .welcome {
+            font-size: 2rem;
+            // font-weight: bold;
+            color: #BD6D2A;
+            margin-bottom: 3rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            .password-input-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                input {
+                    flex-grow: 1;
+                }
+
+                .password-toggle-icon {
+                    position: absolute;
+                    right: 1rem;
+                    bottom: 50%;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    color: #bd6d2a;
+                }
+            }
+
+            .loginGoogle {
+                width: 100%;
+                padding: 1rem;
+                border: 2px solid #BD6D2A;
+                border-radius: 0.2rem;
+                font-size: 1.2rem;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .loginGoogle:hover {
+                background-color: #f4e2d3;
+            }
+
+            .label {
+                font-size: 1rem;
+                // font-weight: bold;
+                // border: 1px solid red;
+                margin-bottom: 1rem;
+                color: #BD6D2A;
+            }
+
+            input {
+                padding: 1rem;
+                border: 0.1rem solid #BD6D2A;
+                border-radius: 0.2rem;
+                font-size: 1.2rem;
+                margin-bottom: 2.5rem;
+                width: 100%;
+            }
+
+            .forgotPassword {
+                font-size: 1rem;
+                color: #BD6D2A;
+                text-align: right;
+                margin-bottom: 1.5rem;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            .loginButton {
+                background-color: #BD6D2A;
+                color: white;
+                padding: 1rem;
+                border: 2px solid #BD6D2A;
+                border-radius: 0.2rem;
+                font-size: 1.2rem;
+                // font-family: 'Ragilen', serif;
+                font-weight: bold;
+                cursor: pointer;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+                transition: color 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background-color: white;
+                    transition: left 0.5s ease-in-out;
+                    z-index: -1;
+                }
+
+                &:hover {
+                    color: #BD6D2A; // Change text color to primary
+                    background-color: white;
+                }
+
+                &:hover::before {
+                    left: 0; // Slide the white background on hover
+                    background-color: white; // Change background to black during hover
+                }
+            }
+
+
+            span {
+                text-align: center;
+                color: #333;
+                font-size: 1.5rem;
+                margin: 1.5rem;
+            }
+
+            .googleButton {
+                border: 0.1rem solid #BD6D2A;
+                padding: 1rem;
+                font-size: 1rem;
+                color: #BD6D2A;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background-color: #f4e2d3;
+                }
+
+                img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .rightLogin {
+        .welcome {
+            font-size: 2rem;
+            // font-weight: bold;
+            color: #BD6D2A;
+            margin-bottom: 3rem;
+        }
+
+        label {
+            font-size: 1.25rem;
+            // font-weight: bold;
+            margin-bottom: 2rem;
+            color: #BD6D2A;
+            display: block;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .createAccountButton {
+            background-color: #BD6D2A;
+            color: white;
+            padding: 1rem;
+            border: 2px solid #BD6D2A;
+            border-radius: 0.2rem;
+            font-size: 1rem;
+            // font-family: 'Ragilen', serif;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: color 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                transition: left 0.5s ease-in-out;
+                z-index: -1;
+            }
+
+            &:hover {
+                color: #BD6D2A; // Change text color to primary color
+                background-color: white;
+            }
+
+            &:hover::before {
+                left: 0; // Slide in the white background on hover
+                background-color: white; // Keep background white during hover
+            }
+        }
+
+    }
+
+    // Responsive behavior for smaller screens
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+
+        .leftLogin,
+        .rightLogin {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .rightLogin {
+            margin-bottom: 0; // Remove extra space at the bottom for the last section
+        }
+    }
+}
