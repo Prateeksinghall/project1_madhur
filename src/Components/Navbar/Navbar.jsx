@@ -12,7 +12,7 @@ const Menu = [
     {
         id: 1,
         name: "OUR STORY",
-        link: "/#"
+        link: "/"
     },
     {
         id: 2,
@@ -29,10 +29,10 @@ const Menu = [
                 name: "Shop by Fabric",
                 link: "#",
                 nested_subMenu: [
-                    { id: 231, name: "Pure Cotton", link: "/#" },
-                    { id: 232, name: "Woolen", link: "/#" },
-                    { id: 233, name: "Silk", link: "/#" },
-                    { id: 234, name: "Nylon", link: "/#" }
+                    { id: 1, name: "Mul Cotton", link: "/#" },
+                    { id: 2, name: "Pure Cotton", link: "/#" },
+                    { id: 3, name: "Cotton Zari", link: "/#" },
+                    { id: 4, name: "Cotton Zamdani", link: "/#" }
                 ]
             }
         ]
@@ -40,50 +40,15 @@ const Menu = [
     {
         id: 3,
         name: "BEST SELLERS",
-        link: "/#",
-        subMenu: [
-            {
-                id: 21,
-                name: "Shop by Collection",
-                link: "/#"
-            },
-            {
-                id: 22,
-                name: "Shop by Fabric",
-                link: "#",
-                nested_subMenu: [
-                    { id: 231, name: "Pure Cotton", link: "/#" },
-                    { id: 232, name: "Woolen", link: "/#" },
-                    { id: 233, name: "Silk", link: "/#" },
-                    { id: 234, name: "Nylon", link: "/#" }
-                ]
-            }
-        ]
+        link: "/products/1"
     },
     {
         id: 4,
         name: "SALE",
-        link: "/#",
-        subMenu: [
-            {
-                id: 21,
-                name: "Shop by Collection",
-                link: "/#"
-            },
-            {
-                id: 22,
-                name: "Shop by Fabric",
-                link: "#",
-                nested_subMenu: [
-                    { id: 231, name: "Pure Cotton", link: "/#" },
-                    { id: 232, name: "Woolen", link: "/#" },
-                    { id: 233, name: "Silk", link: "/#" },
-                    { id: 234, name: "Nylon", link: "/#" }
-                ]
-            }
-        ]
+        link: "/products/2"
     }
 ];
+
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -91,11 +56,11 @@ const Navbar = () => {
         <nav className={`navbar`} >
 
             <div className="leftNavBar">
-                <img src={NataLogo} alt="Logo" className="logo" />
+                <img src={NataLogo} alt="Logo" className="logo" onClick={() => navigate("/")} />
                 <ul className="menu" >
                     {Menu.map((item) => (
                         <li key={item.id} className={item.subMenu ? "has-nested-submenu" : ""}>
-                            <a href={item.link}>
+                            <a onClick={() => navigate(item.link)}>
                                 {item.name}
                             </a>
                             {item.subMenu && (
@@ -111,8 +76,8 @@ const Navbar = () => {
                                                 {subItem.nested_subMenu && (
                                                     <ul className="nested-submenu">
                                                         {subItem.nested_subMenu.map((nestedItem) => (
-                                                            <li key={nestedItem.id}>
-                                                                <a href={nestedItem.link}>{nestedItem.name}</a>
+                                                            <li key={nestedItem.id} onClick={() => navigate(`/categories/${nestedItem.id}`)}>
+                                                                <a >{nestedItem.name}</a>
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -140,11 +105,32 @@ const Navbar = () => {
 
 const NavBarSmall = () => {
     const navigate = useNavigate();
-    return (
 
+    // Function to handle navigation and close the small menu
+    const handleNavigation = (link, hasSubMenu) => {
+        if (!hasSubMenu) {
+            navigate(link); // Only navigate if there's no submenu
+            const nav = document.getElementById("smallMenu");
+            const toggle = document.getElementById("smallToggle");
+            nav.classList.remove('show-menu'); // Hide the menu
+            toggle.classList.remove('show-toggle'); // Reset the toggle button
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+    };
+
+    // Toggle submenu
+    const toggleSubMenu = (event) => {
+        event.stopPropagation(); // Prevent the parent click event
+        const submenu = event.currentTarget.nextElementSibling;
+        if (submenu) {
+            submenu.classList.toggle('show-submenu'); // Toggle the submenu visibility
+        }
+    };
+
+    return (
         <nav className="smallNavBar">
             <div className="smallNavBarContainer">
-                <img src={NataLogo} alt="" className="smallLogo" />
+                <img src={NataLogo} alt="" className="smallLogo" onClick={() => handleNavigation("/")} />
                 <div className="smallToggle" id="smallToggle" onClick={() => {
                     const nav = document.getElementById("smallMenu");
                     const toggle = document.getElementById("smallToggle");
@@ -162,34 +148,32 @@ const NavBarSmall = () => {
             </div>
 
             <div className="smallMenu" id="smallMenu">
-                <ul className="smallList" >
+                <ul className="smallList">
                     {Menu.map((item) => (
                         <li key={item.id} className={`smallMenuLi ${item.subMenu ? "dropdown__item" : ""}`}>
-                            <a href={item.link}>
+                            <a onClick={(e) => item.subMenu ? toggleSubMenu(e) : handleNavigation(item.link, false)}>
                                 {item.name}
                             </a>
-                            {/* {item.subMenu && <PiGreaterThan className="submenu-arrow" />} */}
                             {item.subMenu && (
-                                <ul className="dropdown__menu" >
-                                    {
-                                        item.subMenu.map((subItem) => (
-                                            <li key={subItem.id} className={`${subItem.nested_subMenu ? "dropdown__subitem" : ""}`}>
-                                                <a href={subItem.link} className="dropdown__link">
-                                                    <span className="submenu-text">{subItem.name}</span>
-                                                    {/* {subItem.nested_subMenu && <LiaGreaterThanSolid className="submenu-arrow" />} */}
-                                                </a>
-                                                {subItem.nested_subMenu && (
-                                                    <ul className="dropdown__submenu">
-                                                        {subItem.nested_subMenu.map((nestedItem) => (
-                                                            <li key={nestedItem.id} >
-                                                                <a href={nestedItem.link} className="dropdown__sublink">{nestedItem.name}</a>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                )}
-                                            </li>
-                                        ))
-                                    }
+                                <ul className="dropdown__menu">
+                                    {item.subMenu.map((subItem) => (
+                                        <li key={subItem.id} className={`${subItem.nested_subMenu ? "dropdown__subitem" : ""}`}>
+                                            <a onClick={(e) => subItem.nested_subMenu ? toggleSubMenu(e) : handleNavigation(subItem.link, false)} className="dropdown__link">
+                                                <span className="submenu-text">{subItem.name}</span>
+                                            </a>
+                                            {subItem.nested_subMenu && (
+                                                <ul className="dropdown__submenu">
+                                                    {subItem.nested_subMenu.map((nestedItem) => (
+                                                        <li key={nestedItem.id}>
+                                                            <a onClick={() => handleNavigation(`/categories/${nestedItem.id}`, false)} className="dropdown__sublink">
+                                                                {nestedItem.name}
+                                                            </a>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </li>
+                                    ))}
                                 </ul>
                             )}
                         </li>
@@ -198,13 +182,15 @@ const NavBarSmall = () => {
 
                 <div className="smallRightNavBar">
                     <IoIosSearch className="icon" />
-                    <IoCartOutline className="icon" onClick={() => navigate("/cart")} />  {/* Navigate to Cart */}
-                    <IoPersonOutline className="icon" onClick={() => navigate("/login")} />
+                    <IoCartOutline className="icon" onClick={() => handleNavigation("/cart", false)} />  {/* Navigate to Cart */}
+                    <IoPersonOutline className="icon" onClick={() => handleNavigation("/login", false)} />
                 </div>
             </div>
         </nav>
     );
 };
+
+
 const ResponsiveNavbar = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1118);
 

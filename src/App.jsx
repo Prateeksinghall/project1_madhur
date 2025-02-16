@@ -12,6 +12,8 @@ import Login from "./pages/Login/Login";
 import Orders from "./pages/Order/Order";
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 import Register from "./pages/Register/Register";
+import Product from "./pages/Product/Product";
+import Collections from "./pages/Collections/Collections";
 
 const Layout = () => {
   const location = useLocation();  // Get the current route
@@ -48,6 +50,9 @@ const App = () => {
           <Route path="login" element={<Login />} />
           <Route path="categories/:id" element={<CategoriesPage />} />
           <Route path="register" element={<Register />} />
+          <Route path="product/:id" element={<Product />} />
+          <Route path="collections/:id" element={<Collections />} />
+
 
           {/* Protected Routes (Cart, Checkout, Orders) */}
           <Route path="cart" element={<Cart />} />

@@ -1,0 +1,94 @@
+import React, { useRef, useEffect, useState } from 'react';
+import './Product.scss';
+import image1 from '../../assets/images/Products/product_1_1.png';
+import image2 from '../../assets/images/Products/product_1_2.png';
+import image3 from '../../assets/images/Products/product_2_1.png';
+import image4 from '../../assets/images/Products/product_2_2.png';
+import image5 from '../../assets/images/Products/product_3_1.png';
+import image6 from '../../assets/images/Products/product_3_2.png';
+
+const Product = () => {
+    const data = { images: [image1, image2, image3, image4, image5, image6] };
+    const mainImgRef = useRef(null);
+    const imageRefs = useRef([]); // Array to hold references to each main image
+    const [scrollState, setScrollState] = useState("beforeMainImg");
+
+    const SCROLL_SPEED_MULTIPLIER = 1;
+
+    const handlePageScroll = (e) => {
+        const mainImgEl = mainImgRef.current;
+        const maxScroll = mainImgEl.scrollHeight - mainImgEl.clientHeight;
+
+        if (scrollState === "beforeMainImg") {
+            if (window.scrollY >= window.innerHeight * 0.24) {
+                e.preventDefault();
+                setScrollState("inMainImg");
+                window.scrollTo({ top: window.innerHeight * 0.24, behavior: 'instant' });
+            }
+        } else if (scrollState === "inMainImg") {
+            e.preventDefault();
+            mainImgEl.scrollTop += e.deltaY * SCROLL_SPEED_MULTIPLIER;
+
+            if (mainImgEl.scrollTop >= maxScroll) {
+                setScrollState("afterMainImg");
+            } else if (mainImgEl.scrollTop <= 0) {
+                setScrollState("beforeMainImg");
+                window.scrollTo({ top: window.innerHeight * 0.24, behavior: 'instant' });
+            }
+        } else if (scrollState === "afterMainImg") {
+            if (window.scrollY <= window.innerHeight * 0.24) {
+                e.preventDefault();
+                setScrollState("inMainImg");
+                window.scrollTo({ top: window.innerHeight * 0.24, behavior: 'instant' });
+            }
+        }
+    };
+
+    const handleImageClick = (index) => {
+        if (imageRefs.current[index]) {
+            imageRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('wheel', handlePageScroll, { passive: false });
+        return () => window.removeEventListener('wheel', handlePageScroll);
+    }, [scrollState]);
+
+    return (
+        <div className= "product" >
+        <div className="left" >
+            <div className="images" >
+            {
+                data.images.map((img, index) => (
+                    <img
+                            key= { index }
+                            src = { img }
+                            alt = {`Product ${index}`}
+    onClick = {() => handleImageClick(index)}
+                        />
+                    ))}
+</div>
+    < div className = "mainImg" ref = { mainImgRef } >
+    {
+        data.images.map((img, index) => (
+            <img
+                            key= { index }
+                            src = { img }
+                            alt = {`Main Product ${index}`}
+ref = {(el) => (imageRefs.current[index] = el)} // Assign ref to each image
+                        />
+                    ))}
+</div>
+    </div>
+
+    < div className = "right" >
+        <h2>Product Details </h2>
+            < p > Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+                < p > Price: $100.00 </p>
+                    </div>
+                    </div>
+    );
+};
+
+export default Product;

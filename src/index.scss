@@ -6,6 +6,14 @@ $primary-color: #883B36;
     box-sizing: border-box;
     // background-color: grey;
     // border: 2px solid red;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari */
+    }
 }
 
 body {

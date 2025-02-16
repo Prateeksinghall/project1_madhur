@@ -35,8 +35,12 @@ const Home = () => {
     const images = [ZoomingImage1, ZoomingImage2, img1, img2, ZoomingImage2, ZoomingImage1, ZoomingImage2, img1, img2, ZoomingImage2]
 
     const handleButtonClick = (collectionName) => {
-        alert(`${collectionName} collection clicked!`);
-    }
+        if (collectionName === 'Cotton') {
+            navigate('/collections/1'); // Navigate to the correct collection
+        } else if (collectionName === 'Linen') {
+            navigate('/collections/2'); // You can add navigation for Linen as well
+        }
+    };
 
     const source = {
         first: img1,
