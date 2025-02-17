@@ -7,8 +7,17 @@ import image4 from '../../assets/images/Products/product_2_2.png';
 import image5 from '../../assets/images/Products/product_3_1.png';
 import image6 from '../../assets/images/Products/product_3_2.png';
 import { IoIosStar, IoIosStarHalf } from "react-icons/io";
+import Card from '../../Components/Card/Card';
+import { useNavigate } from 'react-router-dom';
 
 const Product = () => {
+    const navigate = useNavigate();
+    const similarData = [
+        { id: 1, first: "/src/assets/images/Products/product_1_1.png", second: "/src/assets/images/Products/product_1_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
+        { id: 2, first: "/src/assets/images/Products/product_2_1.png", second: "/src/assets/images/Products/product_2_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
+        { id: 3, first: "/src/assets/images/Products/product_3_1.png", second: "/src/assets/images/Products/product_3_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 3 },
+        { id: 4, first: "/src/assets/images/Products/product_4_1.png", second: "/src/assets/images/Products/product_4_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 }
+    ]
     const data = {
         images: [image1, image2, image3, image4, image5, image6],
         title: "Numani Chanderi Sari",
@@ -83,6 +92,79 @@ const Product = () => {
                     <p className="description">{data.description}</p>
                 </div>
             </div>
+
+            <div className="productDetails">
+                <div className="productStory">
+                    <h1>PRODUCT STORY</h1>
+                    <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                </div>
+                <div className="productDetailsBottom">
+                    <div className="features">
+                        <h1>FEATURES AND BENIFITS</h1>
+                        <ul>
+                            <li>dryCELL: Performance technology designed to wick moisture from the body and keep you free of sweat during exercise</li>
+                            <li>Made with 100% recycled material excluding trims & decorations.</li>
+                        </ul>
+                    </div>
+                    <div className="details">
+                        <h1>DETAILS</h1>
+                        <ul>
+                            <li>Slim fit</li>
+                            <li>Crew neck</li>
+                            <li>Side mesh inserts</li>
+                            <li>Football-inspired all-over print and graphic</li>
+                            <li>PACE Cat heat transfer on right chest</li>
+                            <li>170 gsm, double face jacquard knit fabric</li>
+                        </ul>
+                    </div>
+                    <div className="material">
+                        <h1>MATERIAL INFORMATION</h1>
+                        <ul>
+                            <li>Back Body: 100% polyester</li>
+                            <li>Shell: 100% polyester</li>
+                        </ul>
+                    </div>
+                    <div className="country">
+                        <h1>COUNTRY OF ORIGIN</h1>
+                        <ul>
+                            <li>India</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div className='similarText'>Similar Products</div>
+            <ul className="similarProducts">
+                {similarData.map((item, index) => {
+                    const fullStars = Math.floor(item.ratings); // Get whole number of stars
+                    const hasHalfStar = item.ratings % 1 !== 0; // Check if there's a half star
+
+                    return (
+                        <li key={index} className='productItem'
+                            onClick={() => navigate(`/product/${item.id}`)}>
+                            <div className="productImage"><Card source={item} /></div>
+                            <div className='productBInfo'>
+                                <span className='productName'>{item.pname}</span>
+                                <span className='productPrice'>{item.price}</span>
+                                <div className="productRatings">
+                                    {/* Render full stars */}
+                                    {[...Array(fullStars)].map((_, i) => (
+                                        <IoIosStar key={`full-${i}`} className="filled" />
+                                    ))}
+                                    {/* Render half star if applicable */}
+                                    {hasHalfStar && <IoIosStarHalf key="half" className="filled" />}
+                                    {/* Render empty stars to make total 5 */}
+                                    {[...Array(5 - fullStars - (hasHalfStar ? 1 : 0))].map((_, i) => (
+                                        <IoIosStar key={`empty-${i}`} className="unfilled" />
+                                    ))}
+                                </div>
+                            </div>
+                        </li>
+                    );
+                })}
+            </ul>
+
+
         </div>
 
 

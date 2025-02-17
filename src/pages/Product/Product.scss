@@ -1,9 +1,18 @@
+@font-face {
+    font-family: 'Ragilen';
+    src: url('../../assets/Fonts/ragilen/Ragilen.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .productMain {
-    margin: 24vh 2.4rem 0 2.4rem;
+
+    // border: 2px solid red;
 
     .product {
-
+        margin: 24vh 2.4rem 0 2.4rem;
         padding: 0;
+        // border: 2px solid red;
         display: flex;
         gap: 50px;
         flex-wrap: nowrap;
@@ -233,7 +242,115 @@
         // }
     }
 
-    @media (max-width: 768px) {
-        margin: 2.4vh 2.4rem 0 2.4rem;
+    .productDetails {
+        margin-top: 9%;
+        background-color: #BD6D2A;
+        color: white;
+        padding: 2.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .productStory {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+
+            h1 {
+                font-size: 1rem;
+            }
+
+            span {
+                font-size: 1rem;
+            }
+        }
+
+        .productDetailsBottom {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+
+            .features,
+            .details,
+            .material,
+            .country {
+                padding-right: 5rem;
+                flex: 1 1 calc(50% - 1.5rem); // Each element takes up half the width minus the gap
+                // box-sizing: border-box;
+
+                h1 {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    margin-bottom: 0.5rem;
+                    text-transform: uppercase;
+                }
+
+                ul {
+                    list-style: disc;
+                    padding-left: 1.5rem;
+                    margin: 0;
+
+                    li {
+                        font-size: 0.95rem;
+                        // line-height: 1.5;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .similarText {
+        margin: 5rem 0 4.5rem 0;
+        height: 74.46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 56px;
+        font-family: 'Ragilen', serif;
+        text-align: center;
+    }
+
+    .similarProducts {
+        // border: 1px solid red;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.25rem;
+
+        .productItem {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .productImage {
+                width: 20.8rem;
+                height: 29rem;
+            }
+
+            .productBInfo {
+                font-size: 16px;
+                color: #883B36;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: .5rem;
+
+                .productRatings {
+                    display: flex;
+                    gap: 0.3rem;
+                }
+
+                .filled {
+                    color: #883B36; // Filled stars
+                }
+
+                .unfilled {
+                    color: #d3d3d3; // Greyed out stars
+                }
+            }
+        }
     }
 }
