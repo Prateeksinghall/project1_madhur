@@ -104,7 +104,7 @@ const Navbar = () => {
             </div>
 
             <div className={`cartContainer ${cartOpen ? "show" : ""}`}>
-                {cartOpen && <Cart />}
+                {cartOpen && <Cart setCartOpen={setCartOpen} />}
             </div>
         </nav >
     );
@@ -113,7 +113,7 @@ const Navbar = () => {
 
 const NavBarSmall = () => {
     const navigate = useNavigate();
-
+    const [cartOpen, setCartOpen] = useState(false);
     // Function to handle navigation and close the small menu
     const handleNavigation = (link, hasSubMenu) => {
         if (!hasSubMenu) {
@@ -190,8 +190,11 @@ const NavBarSmall = () => {
 
                 <div className="smallRightNavBar">
                     <IoIosSearch className="icon" />
-                    <IoCartOutline className="icon" onClick={() => handleNavigation("/cart", false)} />  {/* Navigate to Cart */}
+                    <IoCartOutline className="icon" onClick={() => setCartOpen(!cartOpen)} />  {/* Navigate to Cart */}
                     <IoPersonOutline className="icon" onClick={() => handleNavigation("/login", false)} />
+                </div>
+                <div className={`cartContainer ${cartOpen ? "show" : ""}`}>
+                    {cartOpen && <Cart setCartOpen={setCartOpen} />}
                 </div>
             </div>
         </nav>

@@ -4,7 +4,7 @@ import { increaseQuantity, decreaseQuantity, removeFromCart } from '../../redux/
 import './Cart.scss';
 import { RxCross2 } from "react-icons/rx";
 
-const Cart = () => {
+const Cart = ({ setCartOpen }) => {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
 
@@ -12,7 +12,7 @@ const Cart = () => {
         <div className="cart">
             <div className="catHeader">
                 <h1>CART</h1>
-                {/* <RxCross2 className="cartClose" /> */}
+                <RxCross2 className="cartClose" onClick={() => setCartOpen(false)} />
             </div>
             <hr />
             <div className="cartProductContainer">
