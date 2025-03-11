@@ -14,20 +14,21 @@ import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 import Register from "./pages/Register/Register";
 import Product from "./pages/Product/Product";
 import Collections from "./pages/Collections/Collections";
+import Profile from "./pages/Profile/Profile";
 
 const Layout = () => {
   const location = useLocation();  // Get the current route
 
   // Hide Navbar and Footer on the login page
-  const hideNavbarAndFooter = location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/cart";
-
+  const hideNavbar = location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/cart";
+  const hideFooter = location.pathname === "/profile" || hideNavbar;
 
   return (
     <div className="app">
-      {!hideNavbarAndFooter && <Navbar />}
+      {!hideNavbar && <Navbar />}
       <Outlet /> {/* This will render the matched child routes */}
-      {!hideNavbarAndFooter && <SecondFooter />}
-      {!hideNavbarAndFooter && <Footer />}
+      {!hideFooter && <SecondFooter />}
+      {!hideFooter && <Footer />}
     </div>
   );
 };
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="product/:id" element={<Product />} />
           <Route path="collections/:id" element={<Collections />} />
+          <Route path="profile" element={<Profile />} />
 
 
           {/* Protected Routes (Cart, Checkout, Orders) */}
