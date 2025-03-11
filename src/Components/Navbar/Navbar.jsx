@@ -98,7 +98,7 @@ const Navbar = () => {
             {/* Right Side: Icons */}
             <div className="rightNavBar">
                 <IoIosSearch className="icon" />
-                <IoPersonOutline className="icon" onClick={() => navigate("/login")} />
+                <IoPersonOutline className="icon" onClick={() => navigate("/profile")} />
                 <IoCartOutline className="icon" onClick={() => setCartOpen(!cartOpen)} />  {/* Navigate to Cart */}
 
             </div>
@@ -191,7 +191,7 @@ const NavBarSmall = () => {
                 <div className="smallRightNavBar">
                     <IoIosSearch className="icon" />
                     <IoCartOutline className="icon" onClick={() => setCartOpen(!cartOpen)} />  {/* Navigate to Cart */}
-                    <IoPersonOutline className="icon" onClick={() => handleNavigation("/login", false)} />
+                    <IoPersonOutline className="icon" onClick={() => handleNavigation("/profile", false)} />
                 </div>
                 <div className={`cartContainer ${cartOpen ? "show" : ""}`}>
                     {cartOpen && <Cart setCartOpen={setCartOpen} />}
