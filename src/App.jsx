@@ -6,7 +6,7 @@ import Footer from './Components/Footer/Footer';
 import SecondFooter from "./Components/SecondFooter/SecondFooter";
 import Home from "./pages/Home/Home";
 import Products from "./pages/Products/Products";
-import Cart from "./pages/Cart/Cart";
+// import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import Login from "./pages/Login/Login";
 import Orders from "./pages/Order/Order";
@@ -55,7 +55,7 @@ const App = () => {
 
 
           {/* Protected Routes (Cart, Checkout, Orders) */}
-          <Route path="cart" element={<Cart />} />
+          {/* <Route path="cart" element={<Cart />} /> */}
           <Route path="checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
           <Route path="orders" element={<PrivateRoute><Orders /></PrivateRoute>} />
         </Route>

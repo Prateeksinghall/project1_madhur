@@ -9,8 +9,11 @@ import image6 from '../../assets/images/Products/product_3_2.png';
 import { IoIosStar, IoIosStarHalf } from "react-icons/io";
 import Card from '../../Components/Card/Card';
 import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../../redux/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const Product = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const similarData = [
         { id: 1, first: "/src/assets/images/Products/product_1_1.png", second: "/src/assets/images/Products/product_1_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
@@ -19,11 +22,25 @@ const Product = () => {
         { id: 4, first: "/src/assets/images/Products/product_4_1.png", second: "/src/assets/images/Products/product_4_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 }
     ]
     const data = {
+        id: 101,
         images: [image1, image2, image3, image4, image5, image6],
         title: "Numani Chanderi Sari",
         cost: "Rs. 14,400.00",
         ratings: 4.5,
         description: "Celebrate the wedding season in our elegant Green Chanderi Sari, featuring intricate floral and patchwork embroidery. The lehenga's upper border, beautifully embroidered for 2 meters, adds a rich, luxurious touch. Paired with a matching choli and dupatta, this ensemble radiates festive charm, making it the perfect choice for a standout, sophisticated look at any celebration. Crafted in pure chanderi . 5.7-meter length(approx.) 45 inches width. (Approx.)Comes with 1m blouse material in chanderi.Made to order."
+    };
+
+    const handleAddToCart = () => {
+        const productToAdd = {
+            id: data.id,
+            pname: data.title,
+            price: data.cost,
+            first: data.images[0], // Primary image for cart
+            ratings: data.ratings,
+            count: 1, // Initial count
+        };
+        dispatch(addToCart(productToAdd)); // Dispatch action to Redux store
+        console.log("triggred")
     };
 
     const mainImgRef = useRef(null);
@@ -84,7 +101,7 @@ const Product = () => {
                             <IoIosStar key={`empty-${i}`} className="unfilled" />
                         ))}
                     </div>
-                    <button className="addToCart">ADD TO CART</button>
+                    <button className="addToCart" onClick={handleAddToCart}>ADD TO CART</button>
                     <button className="addToCart" id='wishlist'>ADD TO WISHLIST</button>
                     <span className='retunLine'>Free retuns on all qualifying orders.</span>
 

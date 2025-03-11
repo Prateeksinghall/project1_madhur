@@ -7,6 +7,7 @@ import "./Navbar.scss";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
 import { PiGreaterThan } from "react-icons/pi";
+import Cart from "../Cart/Cart";
 
 const Menu = [
     {
@@ -50,7 +51,9 @@ const Menu = [
 ];
 
 
+
 const Navbar = () => {
+    const [cartOpen, setCartOpen] = useState(false);
     const navigate = useNavigate();
     return (
         <nav className={`navbar`} >
@@ -95,8 +98,13 @@ const Navbar = () => {
             {/* Right Side: Icons */}
             <div className="rightNavBar">
                 <IoIosSearch className="icon" />
-                <IoCartOutline className="icon" onClick={() => navigate("/cart")} />  {/* Navigate to Cart */}
                 <IoPersonOutline className="icon" onClick={() => navigate("/login")} />
+                <IoCartOutline className="icon" onClick={() => setCartOpen(!cartOpen)} />  {/* Navigate to Cart */}
+
+            </div>
+
+            <div className={`cartContainer ${cartOpen ? "show" : ""}`}>
+                {cartOpen && <Cart />}
             </div>
         </nav >
     );
