@@ -151,7 +151,7 @@ const NavBarSmall = () => {
                     }
                 }}>
                     <RxHamburgerMenu className="smallNavOpen" />
-                    <RxCross2 className="smallNavClose" />
+                    <RxCross2 className="smallNavClose" onClick={() => { setCartOpen(false) }} />
                 </div>
             </div>
 
