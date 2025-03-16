@@ -69,11 +69,11 @@ const Address = () => {
                 <button className="add-address-btn" onClick={handleAddAddress}>+ Add new address</button>
                 <div className="address-section">
                     {addresses.map((address) => (
-                        <div className="address-item" key={address.id}>
+                        <div className={`address-item ${address.default ? 'default' : ''}`} key={address.id}>
                             <input
                                 type="radio"
                                 name="selectedAddress"
-                                checked={selectedAddressId === address.id}
+                                checked={address.default}
                                 onChange={() => handleSelectAddress(address.id)}
                             />
                             <div className="address-details">

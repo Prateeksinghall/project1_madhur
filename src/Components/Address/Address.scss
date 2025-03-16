@@ -8,6 +8,8 @@
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        margin-bottom: 1rem;
+        // border: 1px solid blue;
     }
 
     .shipping-address {
@@ -59,9 +61,11 @@
         display: flex;
         align-items: center;
         gap: 1rem;
-        border: 1px solid #ccc;
+        // border: 1px solid blue;
         padding: 1rem;
         border-radius: 0.5rem;
+
+        margin-bottom: 1rem;
 
         input {
             transform: scale(1.2);
@@ -87,6 +91,13 @@
             cursor: pointer;
             border: none;
         }
+    }
+
+    .address-item.default {
+        border: 2px solid #BD6D2A; // Highlight color for default address
+        background-color: rgba(189, 109, 42, 0.1); // Light background for visibility
+        border-radius: 0.5rem;
+        padding: 1rem;
     }
 
     max-height: 23rem;
