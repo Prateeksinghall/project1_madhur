@@ -67,25 +67,29 @@ const Address = () => {
             <div className="address-content">
                 <h2>Select address</h2>
                 <button className="add-address-btn" onClick={handleAddAddress}>+ Add new address</button>
-                <div className="address-section">
-                    {addresses.map((address) => (
-                        <div className={`address-item ${address.default ? 'default' : ''}`} key={address.id}>
-                            <input
-                                type="radio"
-                                name="selectedAddress"
-                                checked={address.default}
-                                onChange={() => handleSelectAddress(address.id)}
-                            />
-                            <div className="address-details">
-                                <strong>{address.name}</strong>
-                                <p>{address.address}, {address.city}, {address.state}, {address.pincode}, India</p>
-                                <p>Ph no: {address.phone}</p>
+                {addresses.length === 0 ? (
+                    <p className="no-address-msg">Please add your address</p>
+                ) : (
+                    <div className="address-section">
+                        {addresses.map((address) => (
+                            <div className={`address-item ${address.default ? 'default' : ''}`} key={address.id}>
+                                <input
+                                    type="radio"
+                                    name="selectedAddress"
+                                    checked={address.default}
+                                    onChange={() => handleSelectAddress(address.id)}
+                                />
+                                <div className="address-details">
+                                    <strong>{address.name}</strong>
+                                    <p>{address.address}, {address.city}, {address.state}, {address.pincode}, India</p>
+                                    <p>Ph no: {address.phone}</p>
+                                </div>
+                                <button className="edit-btn" onClick={() => handleEditAddress(address)}><MdEdit /></button>
+                                <button className="delete-btn" onClick={() => handleDeleteAddress(address.id)}><MdDeleteOutline /></button>
                             </div>
-                            <button className="edit-btn" onClick={() => handleEditAddress(address)}><MdEdit /></button>
-                            <button className="delete-btn" onClick={() => handleDeleteAddress(address.id)}><MdDeleteOutline /></button>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                )}
             </div>
             {showModal && (
                 <div className="modal">

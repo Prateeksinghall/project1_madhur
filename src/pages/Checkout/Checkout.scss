@@ -10,6 +10,10 @@
         font-size: 1.1rem;
         margin-bottom: 3rem;
 
+        span {
+            cursor: pointer;
+        }
+
         hr {
             flex-grow: 1;
             border: none;
@@ -27,16 +31,20 @@
         display: flex;
         gap: 2rem;
 
-        .address-content {
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        .left-section {
             flex: 1;
-            padding: 1rem;
 
-            .address-section {
-                height: 12rem;
+            .address-content {
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                // flex: 1;
+                padding: 1rem;
+
+                .address-section {
+                    height: 12rem;
+                }
+
+                // width: 100%;
             }
-
-            // width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -157,19 +165,24 @@
                 // }
             }
 
-            .proceed-btn {
+            .checkout-button-container {
                 width: 100%;
-                background: #BD6D2A;
-                // color: white;
-                padding: 1rem;
-                border-radius: 10px;
-                font-size: 1.2rem;
-                font-weight: bold;
-                cursor: pointer;
-                transition: background 0.3s ease-in-out;
+                // border: 1px solid blue;
 
-                &:hover {
-                    background: #964D20;
+                .checkout-btn {
+                    width: 100%;
+                    background: #BD6D2A;
+                    // color: white;
+                    padding: 0.8rem;
+                    border-radius: 10px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: background 0.3s ease-in-out;
+
+                    &:hover {
+                        background: #964D20;
+                    }
                 }
             }
         }
@@ -238,6 +251,173 @@
 
         .apply-btn {
             width: 100%;
+        }
+    }
+}
+
+.payment-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .payment-options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .payment-option {
+            // border: 1px solid blue;
+            display: flex;
+            gap: 1rem;
+            background: #F8F8F8;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+
+            &:hover {
+                background: #EAEAEA;
+            }
+
+            .payment-content {
+                // border: 1px solid blue;
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
+
+                input {
+                    // border:  2px solid red;
+                    padding-right: 5rem;
+                    transform: scale(1.2);
+                }
+
+                span {
+                    font-weight: bold;
+                    font-size: 1.1rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    color: #666;
+                    // margin-left: 1.5rem;
+                }
+
+                .bank-details {
+                    margin-left: 1.5rem;
+                    font-size: 0.9rem;
+                    background: white;
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+
+                    h4 {
+                        font-weight: bold;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    p {
+                        margin: 0;
+                        color: black;
+                    }
+                }
+            }
+
+            .payment-logos {
+                display: flex;
+                gap: 1rem;
+                margin-top: 1rem;
+
+                img {
+                    height: 1.2rem;
+                }
+            }
+
+            .payment-info {
+                font-size: 0.9rem;
+                color: #666;
+                margin-top: 0.5rem;
+            }
+        }
+
+        .upi-option {
+            // border: 1px solid blue;
+
+            .upi-input {
+                // width: 30rem;
+                // height: 20rem;
+                // border: 1px solid red;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                .upi-id {
+                    width: 100%;
+                    padding-right: 0rem;
+                    transform: scale(1);
+                    flex: 1;
+                    padding: 0.5rem;
+                    border: none;
+                    // border: 1px solid red;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                }
+
+                .verify-btn {
+                    background: #BD6D2A;
+                    // color: white;
+                    padding: 0.5rem 1rem;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+
+                    &:hover {
+                        background: #964D20;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .payment-section {
+        padding: 1rem;
+    }
+
+    .payment-options {
+        .payment-option {
+            span {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 0.85rem;
+            }
+        }
+
+        .upi-option {
+            .upi-input {
+                flex-direction: column;
+                gap: 0.3rem;
+
+                input {
+                    width: 100%;
+                }
+
+                .verify-btn {
+                    width: 100%;
+                }
+            }
         }
     }
 }
