@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { IoIosStar, IoIosStarHalf } from "react-icons/io";
 import Card from '../../Components/Card/Card';
+import { increaseQuantity, decreaseQuantity } from '../../redux/cartSlice';
 import './Product.scss';
 
 // Importing product images
@@ -18,7 +19,7 @@ const Product = () => {
     const { id } = useParams(); // Get product ID from URL
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const cartItems = useSelector(state => state.cart.cartItems);
     const data = [
         {
             id: 1,
@@ -67,6 +68,7 @@ const Product = () => {
     if (!product) {
         return <div>Product not found</div>;
     }
+    const productInCart = cartItems.find(item => item.id === product.id);
 
     const handleAddToCart = () => {
         const productToAdd = {
@@ -125,7 +127,15 @@ const Product = () => {
                         ))}
                     </div>
 
-                    <button className="addToCart" onClick={handleAddToCart}>ADD TO CART</button>
+                    {productInCart ? (
+                        <div className="quantityControl">
+                            <button className=" qtyBtn" onClick={() => dispatch(decreaseQuantity(product.id))}>-</button>
+                            <span className="quantity">{productInCart.count}</span>
+                            <button className="qtyBtn" onClick={() => dispatch(increaseQuantity(product.id))}>+</button>
+                        </div>
+                    ) : (
+                        <button className="addToCart" onClick={handleAddToCart}>ADD TO CART</button>
+                    )}
                     <button className="addToCart" id='wishlist'>ADD TO WISHLIST</button>
                     <span className='retunLine'>Free returns on all qualifying orders.</span>
 

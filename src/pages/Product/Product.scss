@@ -354,3 +354,42 @@
         }
     }
 }
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    max-width: 30rem;
+    height: 3.5rem; // Match height of addToCart
+    background-color: #883B36;
+    color: white;
+    border: 2px solid #883B36;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    overflow: hidden;
+
+    .qtyBtn {
+        width: 3rem;
+        height: 100%;
+        flex: 1;
+        // background-color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+            background-color: #883B36;
+            color: white;
+        }
+    }
+
+    .quantity {
+        flex: 1;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}

@@ -15,6 +15,7 @@ import Register from "./pages/Register/Register";
 import Product from "./pages/Product/Product";
 import Collections from "./pages/Collections/Collections";
 import Profile from "./pages/Profile/Profile";
+import ScrollToTop from "./ScrollToTop";
 
 const Layout = () => {
   const location = useLocation();  // Get the current route
@@ -43,6 +44,7 @@ const PrivateRoute = ({ children }) => {
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Public Pages (Home, Products, Login) */}
         <Route path="/" element={<Layout />}>

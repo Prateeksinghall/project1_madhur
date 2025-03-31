@@ -29,23 +29,23 @@ const CategoriesPage = () => {
 
     // Sample product data for the selected category
     const data = [
-        { first: "/src/assets/images/Products/product_1_1.png", second: "/src/assets/images/Products/product_1_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
-        { first: "/src/assets/images/Products/product_2_1.png", second: "/src/assets/images/Products/product_2_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 }
-        , { first: "/src/assets/images/Products/product_3_1.png", second: "/src/assets/images/Products/product_3_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 3 },
-        { first: "/src/assets/images/Products/product_4_1.png", second: "/src/assets/images/Products/product_4_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
-        { first: "/src/assets/images/Products/product_5_1.png", second: "/src/assets/images/Products/product_5_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 2 },
-        { first: "/src/assets/images/Products/product_6_1.png", second: "/src/assets/images/Products/product_6_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
-        { first: "/src/assets/images/Products/product_7_1.png", second: "/src/assets/images/Products/product_7_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 3.5 },
-        { first: "/src/assets/images/Products/product_8_1.png", second: "/src/assets/images/Products/product_8_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4 },
-        { first: "/src/assets/images/Products/product_9_1.png", second: "/src/assets/images/Products/product_9_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
-        { first: "/src/assets/images/Products/product_1_1.png", second: "/src/assets/images/Products/product_1_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
-        { first: "/src/assets/images/Products/product_2_1.png", second: "/src/assets/images/Products/product_2_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
-        { first: "/src/assets/images/Products/product_3_1.png", second: "/src/assets/images/Products/product_3_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 3 },
-        { first: "/src/assets/images/Products/product_4_1.png", second: "/src/assets/images/Products/product_4_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
-        { first: "/src/assets/images/Products/product_5_1.png", second: "/src/assets/images/Products/product_5_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 2 },
-        { first: "/src/assets/images/Products/product_6_1.png", second: "/src/assets/images/Products/product_6_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
-
+        { id: 1, first: "/src/assets/images/Products/product_1_1.png", second: "/src/assets/images/Products/product_1_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
+        { id: 2, first: "/src/assets/images/Products/product_2_1.png", second: "/src/assets/images/Products/product_2_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
+        { id: 3, first: "/src/assets/images/Products/product_3_1.png", second: "/src/assets/images/Products/product_3_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 3 },
+        { id: 4, first: "/src/assets/images/Products/product_4_1.png", second: "/src/assets/images/Products/product_4_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
+        { id: 5, first: "/src/assets/images/Products/product_5_1.png", second: "/src/assets/images/Products/product_5_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 2 },
+        { id: 6, first: "/src/assets/images/Products/product_6_1.png", second: "/src/assets/images/Products/product_6_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
+        { id: 7, first: "/src/assets/images/Products/product_7_1.png", second: "/src/assets/images/Products/product_7_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 3.5 },
+        { id: 8, first: "/src/assets/images/Products/product_8_1.png", second: "/src/assets/images/Products/product_8_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4 },
+        { id: 9, first: "/src/assets/images/Products/product_9_1.png", second: "/src/assets/images/Products/product_9_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
+        { id: 10, first: "/src/assets/images/Products/product_1_1.png", second: "/src/assets/images/Products/product_1_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 },
+        { id: 11, first: "/src/assets/images/Products/product_2_1.png", second: "/src/assets/images/Products/product_2_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
+        { id: 12, first: "/src/assets/images/Products/product_3_1.png", second: "/src/assets/images/Products/product_3_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 3 },
+        { id: 13, first: "/src/assets/images/Products/product_4_1.png", second: "/src/assets/images/Products/product_4_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 4.5 },
+        { id: 14, first: "/src/assets/images/Products/product_5_1.png", second: "/src/assets/images/Products/product_5_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 2 },
+        { id: 15, first: "/src/assets/images/Products/product_6_1.png", second: "/src/assets/images/Products/product_6_2.png", pname: "NUMANI CHANDERI SARI", price: "Rs. 14,000.00", ratings: 5 }
     ];
+
 
     return (
         <div className='CategoriesPage'>
