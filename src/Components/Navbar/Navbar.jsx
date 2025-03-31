@@ -8,6 +8,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
 import { PiGreaterThan } from "react-icons/pi";
 import Cart from "../Cart/Cart";
+import { useSelector } from "react-redux";
 
 const Menu = [
     {
@@ -55,6 +56,14 @@ const Menu = [
 const Navbar = () => {
     const [cartOpen, setCartOpen] = useState(false);
     const navigate = useNavigate();
+    const cartItems = useSelector(state => state.cart.cartItems);
+    let totalItems = 0;
+    if (cartItems?.length) {
+        for (let item of cartItems) {
+            totalItems += item.count || 0;  // Use item.count instead of item.quantity
+        }
+    }
+
     return (
         <nav className={`navbar`} >
 
@@ -99,7 +108,10 @@ const Navbar = () => {
             <div className="rightNavBar">
                 <IoIosSearch className="icon" />
                 <IoPersonOutline className="icon" onClick={() => navigate("/profile")} />
-                <IoCartOutline className="icon" onClick={() => setCartOpen(!cartOpen)} />  {/* Navigate to Cart */}
+                <div className="cart-icon-container" onClick={() => setCartOpen(!cartOpen)}>
+                    <IoCartOutline className="icon" />
+                    {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+                </div> {/* Navigate to Cart */}
 
             </div>
 
@@ -114,6 +126,13 @@ const Navbar = () => {
 const NavBarSmall = () => {
     const navigate = useNavigate();
     const [cartOpen, setCartOpen] = useState(false);
+    let totalItems = 0;
+    const cartItems = useSelector(state => state.cart.cartItems);
+    if (cartItems?.length) {
+        for (let item of cartItems) {
+            totalItems += item.count || 0;  // Use item.count instead of item.quantity
+        }
+    }
     // Function to handle navigation and close the small menu
     const handleNavigation = (link, hasSubMenu) => {
         if (!hasSubMenu) {
@@ -190,8 +209,10 @@ const NavBarSmall = () => {
 
                 <div className="smallRightNavBar">
                     <IoIosSearch className="icon" />
-                    <IoCartOutline className="icon" onClick={() => setCartOpen(!cartOpen)} />  {/* Navigate to Cart */}
-                    <IoPersonOutline className="icon" onClick={() => handleNavigation("/profile", false)} />
+                    <IoCartOutline className="icon" onClick={() => setCartOpen(!cartOpen)} /> <div className="cart-icon-container" onClick={() => setCartOpen(!cartOpen)}>
+                        <IoCartOutline className="icon" />
+                        {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+                    </div><IoPersonOutline className="icon" onClick={() => handleNavigation("/profile", false)} />
                 </div>
                 <div className={`cartContainer ${cartOpen ? "show" : ""}`}>
                     {cartOpen && <Cart setCartOpen={setCartOpen} />}
